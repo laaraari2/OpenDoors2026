@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة الأبواب المفتوحة 2026 - GS Al Oumrane</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #ea580c;
+            --purple: #7c3aed;
+            --blue: #2563eb;
+            --green: #059669;
+            --cyan: #0891b2;
+            --orange: #d97706;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        @page { size: A4 landscape; margin: 0; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-gradient);
+            margin: 0; padding: 40px;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .print-btn {
+            position: fixed; top: 25px; left: 25px; z-index: 1000;
+            background: var(--primary); color: white; border: none; padding: 14px 28px;
+            border-radius: 14px; font-weight: 800; font-size: 1rem; cursor: pointer;
+            box-shadow: 0 10px 15px rgba(30, 58, 138, 0.2); transition: 0.3s;
+        }
+        .print-btn:hover { background: var(--accent); transform: translateY(-2px); }
+
+        .print-page { width: 100%; max-width: 1140px; position: relative; }
+
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-size: 3rem; font-weight: 900; color: var(--primary); margin: 0; }
+        .header p { font-size: 1.5rem; color: var(--accent); font-weight: 800; margin-top: 10px; }
+
+        .map-container {
+            display: grid; grid-template-columns: 1fr 240px 1fr; grid-template-rows: auto auto auto;
+            gap: 40px 60px; align-items: center; background: white; padding: 50px;
+            border-radius: 40px; box-shadow: var(--card-shadow); border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .pole {
+            background: white; border-radius: 28px; border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; transition: 0.3s;
+        }
+        .pole:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        .pole-header { padding: 20px 24px; border-bottom: 1px solid #f8fafc; position: relative; }
+        .pole-header::after { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; }
+        .pole h3 { font-size: 1.3rem; font-weight: 900; margin: 0; }
+        .pole-entrance h3 { color: var(--purple); }
+        .pole-nature h3 { color: var(--blue); }
+        .pole-tech h3 { color: var(--cyan); }
+        .pole-sports h3 { color: var(--orange); }
+        .pole-skills h3 { color: var(--green); }
+        
+        .pole-subtitle { font-size: 0.9rem; color: #94a3b8; font-weight: 700; margin-top: 4px; display: block; }
+        
+        .pole-body { padding: 20px 24px 24px; }
+        .pole ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+        .pole ul li { 
+            font-size: 1rem; font-weight: 700; padding: 12px 16px; background: #f8fafc;
+            border-radius: 14px; color: #334155; display: flex; align-items: center; gap: 12px;
+        }
+
+        .pole-entrance { grid-column: 1 / 4; justify-self: center; width: 420px; }
+        .pole-entrance .pole-header::after { background: var(--purple); }
+        .pole-nature .pole-header::after { background: var(--blue); }
+        .pole-tech .pole-header::after { background: var(--cyan); }
+        .pole-sports .pole-header::after { background: var(--orange); }
+        .pole-skills .pole-header::after { background: var(--green); }
+
+        .map-center-icon {
+            grid-column: 2; grid-row: 2 / 4; align-self: center;
+            background: white; border-radius: 50%; padding: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08); border: 8px solid #f8fafc;
+            width: 220px; height: 220px; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+        }
+
+        @media print {
+            html, body { width: 297mm; height: 210mm; margin: 0; padding: 0; overflow: hidden !important; background: white !important; }
+            .no-print, .global-floating-nav, .print-btn { display: none !important; }
+            .print-page { 
+                width: 297mm; height: 210mm; border: 15px solid var(--primary); 
+                box-sizing: border-box; display: block; position: absolute; top: 0; left: 0;
+            }
+            .header { position: absolute; top: 25px; left: 0; right: 0; margin: 0; }
+            .header h1 { font-size: 2.2rem; }
+            .header p { font-size: 1.1rem; color: var(--accent) !important; font-weight: 800; }
+            .map-container {
+                position: absolute; top: 175px; left: 30px; right: 30px; bottom: 30px;
+                grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto;
+                gap: 15px 20px; padding: 0; border: none; box-shadow: none; background: transparent;
+                transform: scale(0.78); transform-origin: top center;
+            }
+            .pole-entrance { grid-column: 1; grid-row: 1; width: auto; justify-self: stretch; }
+            .pole-nature { grid-column: 2; grid-row: 1; }
+            .pole-tech { grid-column: 3; grid-row: 1; }
+            .pole-sports { grid-column: 1; grid-row: 2; }
+            .pole-skills { grid-column: 3; grid-row: 2; }
+            .map-center-icon { grid-column: 2; grid-row: 2; width: 150px; height: 150px; align-self: center; margin: 0 auto; }
+            .pole { border: 2px solid #e2e8f0; }
+            .pole-header { padding: 8px 12px; }
+            .pole-body { padding: 8px 12px; }
+            .pole h3 { font-size: 1.1rem; font-weight: 900; }
+            .pole-subtitle { font-size: 0.75rem; margin-top: 2px; }
+            .pole ul li { padding: 6px 10px; font-size: 0.85rem; color: #000 !important; border: 1px solid #f1f5f9; }
+            .pole-entrance h3 { color: var(--purple) !important; }
+            .pole-nature h3 { color: var(--blue) !important; }
+            .pole-tech h3 { color: var(--cyan) !important; }
+            .pole-sports h3 { color: var(--orange) !important; }
+            .pole-skills h3 { color: var(--green) !important; }
+            .icon { display: none !important; }
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <button class="print-btn no-print" onclick="window.print()">🖨️ طباعة الخريطة</button>
+
+    <div class="print-page">
+        <div class="header">
+            <h1>🗺️ خريطة الأبواب المفتوحة 2026</h1>
+            <p>التوزيع الجغرافي للأقطاب والورشات داخل فضاء مجموعة مدارس العمران</p>
+        </div>
+
+        <div class="map-container">
+            <!-- Pole 1 -->
+            <div class="pole pole-entrance">
+                <div class="pole-header">
+                    <h3>📍 قطب التواصل والإبداع</h3>
+                    <span class="pole-subtitle">ساحة المؤسسة (الاستقبال)</span>
+                </div>
+                <div class="pole-body">
+                    <ul>
+                        <li><span class="icon">🎨</span> ورشة العجين</li>
+                        <li><span class="icon">💄</span> ورشة التجميل</li>
+                        <li><span class="icon">📻</span> ورشة الإذاعة</li>
+                        <li><span class="icon">🖼️</span> المعرض الفني</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Center Logo -->
+            <div class="map-center-icon">
+                <img src="logo.jpg" alt="Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                <div style="font-size: 0.9rem; font-weight: 900; color: var(--accent); margin-top: 12px;">نفتح الأبواب.. لنبني الأجيال</div>
+                <div style="font-size: 0.7rem; color: #64748b;">من أجل بيئة تعليمية محفزة للابتكار والتميز</div>
+            </div>
+
+            <!-- Pole 3 -->
+            <div class="pole pole-tech">
+                <div class="pole-header">
+                    <h3>📍 فضاء الدروس التفاعلية</h3>
+                    <span class="pole-subtitle">الطابق الأول</span>
+                </div>
+                <div class="pole-body">
+                    <ul>
+                        <li><span class="icon">💻</span> قاعة الإعلاميات</li>
+                        <li><span class="icon">🖱️</span> الدروس التفاعلية</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pole 2 -->
+            <div class="pole pole-nature">
+                <div class="pole-header">
+                    <h3>📍 القطب البيئي والفني</h3>
+                    <span class="pole-subtitle">ساحة الملعب</span>
+                </div>
+                <div class="pole-body">
+                    <ul>
+                        <li><span class="icon">🌿</span> ورشة البستنة</li>
+                        <li><span class="icon">🎭</span> قاعة المسرح</li>
+                        <li><span class="icon">🏊‍♂️</span> المسبح</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pole 5 -->
+            <div class="pole pole-skills">
+                <div class="pole-header">
+                    <h3>📍 فضاء الإبداع والمهارات</h3>
+                    <span class="pole-subtitle">لاكاف (Sous-sol)</span>
+                </div>
+                <div class="pole-body">
+                    <ul>
+                        <li><span class="icon">🍎</span> التربية الغذائية</li>
+                        <li><span class="icon">🎭</span> ورشة الكراكيز</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pole 4 -->
+            <div class="pole pole-sports">
+                <div class="pole-header">
+                    <h3>📍 القطب الرياضي والثقافي</h3>
+                    <span class="pole-subtitle">الفضاء المفتوح</span>
+                </div>
+                <div class="pole-body">
+                    <ul>
+                        <li><span class="icon">🎯</span> ورشة الألعاب</li>
+                        <li><span class="icon">🐎</span> ركوب الخيل</li>
+                        <li><span class="icon">🎨</span> ورشة الرسم</li>
+                        <li><span class="icon">📚</span> المكتبة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html">🏠</a>
+        <a href="open_doors_signage.html">🪧</a>
+        <a href="open_doors_map.html" style="background:#d4af37; color: white;">🗺️</a>
+        <a href="open_doors_rotation.html">🔄</a>
+        <a href="open_doors_guide_card.html">📋</a>
+    </nav>
+
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px; z-index: 9999;
+    }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;
+    }
+    .global-floating-nav a:hover { background: #d4af37; transform: translateY(-3px); }
+    </style>
+
+</body>
+</html>

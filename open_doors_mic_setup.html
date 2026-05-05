@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تجهيز ركن ميكروفون العمران - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d;
+            --brand-gold: #9a3412;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+            padding: 40px 20px;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--brand-blue); border-bottom: 3px solid var(--brand-gold); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
+
+        .mockup-img { width: 100%; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .instruction { font-size: 1rem; color: #475569; margin-bottom: 20px; line-height: 1.6; }
+
+        /* Mic Flag Template */
+        .mic-flag-container {
+            background: #fff;
+            padding: 40px;
+            border: 2px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .mic-flag-net {
+            display: inline-block;
+            position: relative;
+        }
+
+        .square {
+            width: 60mm;
+            height: 60mm;
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--brand-blue);
+            color: white;
+            padding: 10px;
+        }
+
+        .logo-box img { width: 40mm; height: auto; filter: brightness(0) invert(1); }
+        .mic-text { font-size: 18pt; font-weight: 900; margin-top: 10px; color: var(--brand-gold); }
+
+        .tab {
+            width: 15mm;
+            height: 60mm;
+            border: 1px solid #000;
+            background: #f1f5f9;
+        }
+
+        /* Layout for the net */
+        .net-row { display: flex; }
+        .net-middle { display: flex; align-items: center; }
+
+        .print-label { margin-top: 10px; font-weight: 700; color: #ef4444; }
+
+        /* Signage Design */
+        .signage-preview {
+            width: 100%;
+            height: 400px;
+            background: var(--brand-blue);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            border: 8px double var(--brand-gold);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .signage-preview h1 { font-size: 3rem; font-weight: 900; margin-bottom: 20px; }
+        .signage-preview p { font-size: 1.5rem; font-weight: 700; color: var(--brand-gold); }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .no-print { display: none; }
+            .section { box-shadow: none; border: none; padding: 0; margin-bottom: 50mm; }
+            .mic-flag-container { border: none; }
+        }
+
+        .btn {
+            background: var(--brand-blue);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="container">
+        
+        <!-- Mockup Section -->
+        <div class="section no-print">
+            <h2>المعاينة التخيلية (Mockup)</h2>
+            <p class="instruction">هكذا سيبدو ركن "ميكروفون العمران" بعد التجهيز. لاحظ كيف تضفي الخلفية الموحدة والإضاءة طابعاً احترافياً على المكان.</p>
+            <img src="mic_corner_mockup.png" class="mockup-img" alt="Mockup">
+        </div>
+
+        <!-- Mic Flag Section -->
+        <div class="section">
+            <h2>تصميم هوية الميكروفون (Mic Flag)</h2>
+            <p class="instruction">قم بطباعة هذا المخطط، قص الأطراف، ثم قم بطيه وتلصيقه ليصبح مكعباً يحيط بالميكروفون.</p>
+            
+            <div class="mic-flag-container">
+                <div class="mic-flag-net">
+                    <!-- Square 1 (Front) -->
+                    <div class="square">
+                        <div class="logo-box"><img src="logo.jpg"></div>
+                        <div class="mic-text">ميكروفون العمران</div>
+                    </div>
+                    <!-- Simplified instruction for assembly -->
+                    <p class="print-label">⚠️ اطبع 4 نسخ من هذا المربع وألصقها على جوانب مكعب كرتوني.</p>
+                </div>
+            </div>
+            <button class="btn no-print" onclick="window.print()">🖨️ طباعة دليل التجهيز</button>
+        </div>
+
+        <!-- Corner Signage Section -->
+        <div class="section">
+            <h2>لوحة الركن الإرشادية</h2>
+            <p class="instruction">لوحة كبيرة توضع بجانب الركن لتشجيع الزوار على المشاركة.</p>
+            
+            <div class="signage-preview">
+                <h1>ميكروفون العمـران</h1>
+                <p>شاركـونا انطباعاتـكم بالصـوت والصـورة</p>
+                <div style="font-size: 4rem; margin-top: 20px;">🎤</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

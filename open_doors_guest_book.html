@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>السجل الذهبي - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Amiri:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #000000;
+            --brand-gold: #c2912e;
+            --cream: #fffdf5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f1f5f9;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Standard view centering */
+        .main-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .guest-book-page {
+            width: 190mm;
+            height: 270mm;
+            background: var(--cream);
+            padding: 10mm 15mm;
+            position: relative;
+            border: 10px double var(--brand-gold);
+            box-shadow: 0 0 40px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Inner decorative border */
+        .guest-book-page::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 2px solid var(--brand-blue);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--brand-gold);
+            padding-bottom: 10px;
+            z-index: 2;
+        }
+
+        .logo img { height: 55px; margin-bottom: 5px; }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            color: var(--brand-blue);
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            color: var(--brand-gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #000000;
+            margin-bottom: 15px;
+            font-style: italic;
+            padding: 0 40px;
+            z-index: 2;
+        }
+
+        .feedback-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .feedback-row {
+            border: none;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .feedback-row:not(:last-child) {
+            border-bottom: 3px solid var(--brand-gold);
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .field-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .field { font-weight: 800; color: #000000; font-size: 0.95rem; white-space: nowrap; }
+        .dots { flex: 1; border-bottom: 1px dotted #000000; height: 18px; }
+        .message-label { font-weight: 800; color: #000000; font-size: 0.95rem; margin-bottom: 8px; }
+        .message-box { 
+            height: 85px; 
+            border: 1.5px solid #000000; 
+            border-radius: 6px; 
+            background: #ffffff; 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .signature-area { display: flex; justify-content: flex-end; margin-top: 8px; font-size: 0.8rem; color: #000000; font-weight: 700; }
+
+        footer {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--brand-blue);
+            font-weight: 800;
+            border-top: 1px solid var(--brand-gold);
+            padding-top: 10px;
+            z-index: 2;
+        }
+
+        @media print {
+            body { background: none !important; margin: 0 !important; padding: 0 !important; }
+            .main-wrapper { padding: 0 !important; }
+            .print-table { width: 210mm; height: 297mm; border-collapse: collapse; margin: 0; padding: 0; }
+            .guest-book-page { 
+                margin: 0 auto !important; 
+                box-shadow: none !important; 
+                border-width: 8px !important;
+                width: 190mm !important;
+                height: 270mm !important;
+            }
+            .no-print, .back-home { display: none !important; }
+        }
+
+        .no-print { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+        .btn { background: var(--brand-blue); color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .back-home { position: fixed; bottom: 30px; right: 30px; background: var(--brand-blue); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1000; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">🖨️ طباعة السجل الذهبي (A4)</button>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- Print Table Wrapper for centering -->
+        <table class="print-table">
+        <tr>
+            <td align="center" valign="middle">
+                <div class="guest-book-page">
+                    <header>
+                        <div class="logo"><img src="logo.jpg" alt="Logo"></div>
+                        <h1>السجل الذهبي للزوار</h1>
+                        <div class="subtitle">Journée Portes Ouvertes 2026</div>
+                    </header>
+
+                    <div class="intro-text">
+                        "آراؤكم وانطباعاتكم هي البوصلة التي توجهنا نحو التميز. يسعدنا أن تشاركونا كلمة قصيرة تعبر عن تجربتكم اليوم."
+                    </div>
+
+                    <div class="feedback-section">
+                        <!-- Entry 1 -->
+                        <div class="feedback-row">
+                            <div class="field-group">
+                                <span class="field">الاسم الكامل:</span>
+                                <div class="dots"></div>
+                                <span class="field">الصفة:</span>
+                                <div class="dots" style="max-width: 150px;"></div>
+                            </div>
+                            <div class="message-label">كلمة الزائر:</div>
+                            <div class="message-box"></div>
+                            <div class="signature-area">التوقيع: ...........................</div>
+                        </div>
+
+                        <!-- Entry 2 -->
+                        <div class="feedback-row">
+                            <div class="field-group">
+                                <span class="field">الاسم الكامل:</span>
+                                <div class="dots"></div>
+                                <span class="field">الصفة:</span>
+                                <div class="dots" style="max-width: 150px;"></div>
+                            </div>
+                            <div class="message-label">كلمة الزائر:</div>
+                            <div class="message-box"></div>
+                            <div class="signature-area">التوقيع: ...........................</div>
+                        </div>
+
+                        <!-- Entry 3 -->
+                        <div class="feedback-row">
+                            <div class="field-group">
+                                <span class="field">الاسم الكامل:</span>
+                                <div class="dots"></div>
+                                <span class="field">الصفة:</span>
+                                <div class="dots" style="max-width: 150px;"></div>
+                            </div>
+                            <div class="message-label">كلمة الزائر:</div>
+                            <div class="message-box"></div>
+                            <div class="signature-area">التوقيع: ...........................</div>
+                        </div>
+                    </div>
+
+                    <footer>
+                        مجموعة مدارس العمران - Excellence & Valeurs | 16 Mai 2026
+                    </footer>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+</body>
+</html>

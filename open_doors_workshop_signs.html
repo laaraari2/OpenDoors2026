@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لافتات الورشات ثنائية اللغة - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d;
+            --brand-gold: #9a3412;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #e2e8f0;
+        }
+
+        .sign-page {
+            width: 297mm;
+            height: 210mm;
+            background: white;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+            background-image: 
+                radial-gradient(var(--brand-blue) 1px, transparent 1px),
+                linear-gradient(135deg, #f8fafc 25%, transparent 25%, transparent 50%, #f8fafc 50%, #f8fafc 75%, transparent 75%, transparent);
+            background-size: 40px 40px, 100px 100px;
+        }
+
+        .inner-border {
+            width: 275mm;
+            height: 185mm;
+            border: 15px solid var(--brand-blue);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        .inner-border::after {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 4px double var(--brand-gold);
+            pointer-events: none;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--brand-blue);
+        }
+
+        .school-name { font-size: 2rem; font-weight: 900; color: var(--brand-blue); }
+        .event-name { font-size: 1.4rem; font-weight: 700; color: var(--brand-gold); }
+        .logo img { height: 80px; }
+
+        .workshop-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .workshop-title-ar {
+            font-size: 8rem;
+            font-weight: 950;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 0;
+            text-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .workshop-title-fr {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--brand-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 20px; /* Moved down as requested */
+        }
+
+        .icon-box {
+            font-size: 5rem;
+            margin-bottom: 5px;
+        }
+
+        .footer-note {
+            width: 100%;
+            background: var(--brand-blue);
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 20rem;
+            color: rgba(26, 54, 93, 0.05);
+            z-index: 1;
+            font-weight: 900;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .controls {
+            position: fixed; top: 20px; left: 20px;
+            background: #111; padding: 25px; border-radius: 15px;
+            color: white; z-index: 1000; box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border: 2px solid var(--brand-gold);
+        }
+        .btn {
+            background: #10b981; color: white; border: none; padding: 15px 30px;
+            border-radius: 10px; cursor: pointer; font-weight: 900; font-size: 1.2rem;
+            width: 100%;
+        }
+
+        @media print {
+            .controls { display: none; }
+            body { background: none; }
+            .sign-page { margin: 0; border: none; width: 100%; height: 100vh; }
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls">
+        <button class="btn" onclick="window.print()">🖨️ طباعة اللافتات ثنائية اللغة</button>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #fbbf24;">* تم إضافة الترجمة الفرنسية لكل ورشة</p>
+    </div>
+
+    <div id="signs-container"></div>
+
+    <script>
+        const workshops = [
+            { ar: "ورشة العجين", fr: "Pâte à modeler", icon: "🎨" },
+            { ar: "ورشة التجميل", fr: "Maquillage Enfant", icon: "🎨" },
+            { ar: "ورشة الكراكيز", fr: "Marionnettes", icon: "🎭" },
+            { ar: "ورشة الألعاب 1", fr: "Jeux de Kermesse", icon: "🎯" },
+            { ar: "ورشة الألعاب 2", fr: "Jeux de Kermesse", icon: "🎪" },
+            { ar: "المكتبة", fr: "Bibliothèque", icon: "📚" },
+            { ar: "الإعلاميات", fr: "Informatique", icon: "💻" },
+            { ar: "ورشة البستنة", fr: "Jardinage", icon: "🌱" },
+            { ar: "ورشة المسرح", fr: "Théâtre", icon: "🎭" },
+            { ar: "العربة التقليدية", fr: "Calèche", icon: "🐎" },
+            { ar: "التربية الغذائية", fr: "Éducation Alimentaire", icon: "🍽️" },
+            { ar: "ورشة الرسم", fr: "Atelier de Dessin", icon: "🖌️" },
+            { ar: "معرض إنتاجات التلاميذ", fr: "Exposition des Travaux", icon: "✨" }
+        ];
+
+        const container = document.getElementById('signs-container');
+
+        workshops.forEach(w => {
+            const page = document.createElement('div');
+            page.className = 'sign-page';
+            page.innerHTML = `
+                <div class="watermark">AL OUMRANE</div>
+                <div class="inner-border">
+                    <div class="header">
+                        <div class="school-name">مجموعة مدارس العمران</div>
+                        <div class="logo"><img src="logo.jpg" alt="Logo"></div>
+                        <div class="event-name">الأبواب المفتوحة 2026</div>
+                    </div>
+                    
+                    <div class="workshop-content">
+                        <div class="icon-box">${w.icon}</div>
+                        <div class="workshop-title-ar">${w.ar}</div>
+                        <div class="workshop-title-fr">${w.fr}</div>
+                    </div>
+                    
+                    <div class="footer-note">
+                        EXCELLENCE & VALEURS
+                    </div>
+                </div>
+            `;
+            container.appendChild(page);
+        });
+    </script>
+</body>
+</html>

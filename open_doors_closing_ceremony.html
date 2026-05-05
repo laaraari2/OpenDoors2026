@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>برنامج الحفل الختامي - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d;
+            --brand-gold: #9a3412;
+            --soft-gold: #fef3c7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+            padding: 20px;
+        }
+
+        .program-card {
+            width: 210mm;
+            height: 296mm;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            margin: 0 auto;
+            padding: 0 15mm 10mm 15mm;
+            border: 20px solid var(--brand-blue);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .program-card::after {
+            content: '';
+            position: absolute;
+            top: 5mm; left: 5mm; right: 5mm; bottom: 5mm;
+            border: 2px solid var(--brand-gold);
+            pointer-events: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+            padding-top: 20px;
+        }
+
+        .logo img { height: 90px; margin-bottom: 5px; }
+
+        h1 {
+            color: var(--brand-blue);
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 2px;
+            letter-spacing: 2px;
+        }
+
+        .ceremony-title {
+            background: var(--brand-gold);
+            color: white;
+            display: inline-block;
+            padding: 10px 40px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border-radius: 50px;
+            margin-top: 2px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: var(--brand-blue);
+            font-weight: 800;
+        }
+
+        .timeline {
+            margin-top: 20px;
+            padding: 0 40px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 5px;
+            position: relative;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .time {
+            width: 100px;
+            font-weight: 950;
+            color: var(--brand-gold);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .activity {
+            flex: 1;
+        }
+
+        .activity h3 {
+            color: var(--brand-blue);
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .activity p {
+            color: #475569;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-note {
+            margin-top: auto;
+            text-align: center;
+            padding: 10px 60px;
+            width: 100%;
+        }
+
+        .footer-note p {
+            font-size: 1.1rem;
+            color: var(--brand-blue);
+            font-weight: 800;
+            line-height: 1.6;
+        }
+
+        .decor {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 5rem;
+            opacity: 0.1;
+            color: var(--brand-gold);
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .program-card { margin: 0; box-shadow: none; }
+            .no-print { display: none; }
+        }
+
+        .no-print {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .btn {
+            background: var(--brand-gold);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">🖨️ طباعة برنامج الحفل (A4)</button>
+    </div>
+
+    <div class="program-card">
+        <div class="decor">🎭</div>
+        
+        <header>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+            </div>
+            <h1>بـرنامج الحـفل</h1>
+            <div class="ceremony-title">الختام والبهجة - الأبواب المفتوحة 2026</div>
+            
+            <div class="meta-info">
+                <span>📍 مسرح المؤسسة</span>
+                <span>📅 16 ماي 2026</span>
+                <span>⏰ 16:15 زوالاً</span>
+            </div>
+        </header>
+
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="time">16:15 - 16:20</div>
+                <div class="activity">
+                    <h3>الاستقبال والافتتاح</h3>
+                    <p>استقبال الزوار على نغمات موسيقى هادئة وتنشيط مسرحي خفيف.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:20 - 16:30</div>
+                <div class="activity">
+                    <h3>كلمة الختام</h3>
+                    <p>كلمة ترحيبية وشكر لكل المساهمين في إنجاح هذا اليوم الإبداعي.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:30 - 16:45</div>
+                <div class="activity">
+                    <h3>حصاد الإبداع</h3>
+                    <p>عرض ملخص سريع لأهم إنتاجات الورشات (فيديو أو تقديم حي لبعض النماذج).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">16:45 - 16:55</div>
+                <div class="activity">
+                    <h3>لحظة فنية</h3>
+                    <p>فقرة فنية قصيرة من إعداد التلاميذ (مسرح، إنشاد، أو استعراض ريادي).</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="border-bottom: none;">
+                <div class="time">16:55 - 17:00</div>
+                <div class="activity">
+                    <h3>الوداع</h3>
+                    <p>كلمة ختامية وشكر للحضور الكريم على مشاركتهم المتميزة.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-note">
+            <p>"نجاحنا يكتمل بوجودكم.. شكراً لكم على مشاركتنا هذا اليوم الاستثنائي"</p>
+        </div>
+    </div>
+
+</body>
+</html>

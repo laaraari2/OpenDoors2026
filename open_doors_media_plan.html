@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سيناريو التغطية الإعلامية - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d;
+            --brand-gold: #9a3412;
+            --bg: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            padding: 30px;
+            color: #1e293b;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border-top: 10px solid var(--brand-blue); }
+
+        header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; }
+        header h1 { color: var(--brand-blue); font-size: 2.2rem; font-weight: 900; }
+        header p { color: var(--brand-gold); font-size: 1.2rem; font-weight: 700; margin-top: 5px; }
+
+        .section { margin-bottom: 40px; }
+        .section-title { 
+            display: flex; align-items: center; gap: 10px;
+            font-size: 1.5rem; font-weight: 900; color: var(--brand-blue);
+            margin-bottom: 20px; background: #f1f5f9; padding: 10px 20px; border-radius: 10px;
+        }
+
+        .instruction-list { list-style: none; }
+        .instruction-item { 
+            margin-bottom: 15px; padding-right: 35px; position: relative; font-size: 1.05rem; line-height: 1.6;
+        }
+        .instruction-item::before {
+            content: '📸'; position: absolute; right: 0; top: 0; font-size: 1.2rem;
+        }
+
+        .speech-box {
+            background: #fffbeb;
+            border-right: 5px solid var(--brand-gold);
+            padding: 25px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        .speech-box h4 { color: var(--brand-gold); margin-bottom: 15px; font-weight: 900; font-size: 1.2rem; }
+        .speech-text { font-style: italic; color: #1e293b; font-weight: 700; line-height: 1.8; }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .question-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .question-card h5 { color: var(--brand-blue); margin-bottom: 10px; font-weight: 900; }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; width: 100%; max-width: 100%; padding: 10mm; }
+            .no-print { display: none; }
+        }
+
+        .btn-print {
+            position: fixed; top: 20px; left: 20px; background: var(--brand-blue); color: white;
+            border: none; padding: 12px 25px; border-radius: 8px; font-weight: 900; cursor: pointer;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <button class="btn-print no-print" onclick="window.print()">🖨️ طباعة دليل المصور (A4)</button>
+
+    <div class="container">
+        <header>
+            <h1>خطة التغطية الإعلامية (Media Plan)</h1>
+            <p>مجموعة مدارس العمران - الأبواب المفتوحة 2026</p>
+        </header>
+
+        <!-- Section 1: Visual Identity -->
+        <div class="section">
+            <div class="section-title"><span>🎯</span> الأهداف البصرية الرئيسية</div>
+            <ul class="instruction-list">
+                <li class="instruction-item"><b>الاحترافية</b>: إظهار المؤسسة كبيئة تعليمية منظمة وآمنة.</li>
+                <li class="instruction-item"><b>الإبداع</b>: التركيز على إنتاجات التلاميذ في الورشات (Close-ups).</li>
+                <li class="instruction-item"><b>السعادة</b>: التقاط لقطات عفوية للتلاميذ وهم يستمتعون بالأنشطة.</li>
+                <li class="instruction-item"><b>الثقة</b>: تصوير تفاعل الآباء مع الإدارة والأطر التربوية.</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Director's Speech -->
+        <div class="section">
+            <div class="section-title"><span>🎤</span> كلمة المديرة التربوية (التصريح الرسمي)</div>
+            <p class="instruction-item">يُصور هذا التصريح في مكان هادئ مع خلفية تظهر فيها حركة الورشات (بشكل غير مشوش).</p>
+            
+            <div class="speech-box">
+                <h4>النسخة العربية:</h4>
+                <p class="speech-text">
+                    "يسعدنا اليوم أن نفتح أبواب مجموعتنا المدرسية 'العمران' لنشارككم رؤيتنا التربوية المتجددة. إن الغاية من هذه الأبواب المفتوحة هي إبراز شغف تلاميذنا وقدراتهم الإبداعية في بيئة تجمع بين التميز الدراسي والذكاء العاطفي. نحن نؤمن بأن كل طفل مشروع نجاح مستقل، ومهمتنا هي توفير الأدوات والورشات التي تصقل مواهبه. شكراً لثقتكم الغالية، وشكراً لكل الأطر التي جعلت من هذا اليوم تجربة استثنائية."
+                </p>
+            </div>
+
+            <div class="speech-box" style="margin-top: 20px; background: #eff6ff; border-right-color: var(--brand-blue);">
+                <h4 style="color: var(--brand-blue);">Version Française:</h4>
+                <p class="speech-text">
+                    "C’est un immense plaisir de vous accueillir aujourd’hui au sein du Groupe Scolaire AL OUMRANE. Ces Journées Portes Ouvertes reflètent notre ambition éducative : cultiver l’excellence académique tout en épanouissant la créativité de nos élèves. À travers nos ateliers, nous souhaitons vous montrer comment nous accompagnons chaque enfant dans la découverte de ses talents uniques. Merci de votre précieuse confiance et bravo à nos équipes pour cette magnifique célébration de l’apprentissage et de l'innovation."
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3: Facilitator's Statement -->
+        <div class="section">
+            <div class="section-title"><span>🎨</span> كلمة منشط(ة) ورشة</div>
+            <p class="instruction-item">تصريح قصير يُؤخذ داخل الورشة أثناء العمل لإبراز الجانب التطبيقي.</p>
+            
+            <div class="speech-box" style="background: #f0fdf4; border-right-color: #22c55e;">
+                <h4 style="color: #166534;">النسخة العربية:</h4>
+                <p class="speech-text">
+                    "مرحباً بكم في ورشتنا اليوم. هدفنا الأساسي هو منح الأطفال فرصة للتعبير عن أنفسهم واكتشاف مهاراتهم اليدوية والذهنية بطريقة ممتعة. من خلال هذه الأنشطة، ننمي لديهم الثقة بالنفس والقدرة على الابتكار. إنه لمن المفرح حقاً رؤية تلك الابتسامة على وجوههم وهم يلمسون نتائج إبداعاتهم لأول مرة."
+                </p>
+            </div>
+
+            <div class="speech-box" style="margin-top: 20px; background: #fefce8; border-right-color: #eab308;">
+                <h4 style="color: #854d0e;">Version Française:</h4>
+                <p class="speech-text">
+                    "Bienvenue dans notre atelier. Notre objectif est de donner aux enfants un espace d'expression où ils peuvent découvrir leurs talents manuels et intellectuels tout en s'amusant. À travers ces activités, nous renforçons leur confiance en soi et leur esprit d'innovation. C’est un réel plaisir de voir l'étincelle dans leurs yeux lorsqu'ils réalisent leurs propres créations."
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 4: Interview Questions -->
+        <div class="section">
+            <div class="section-title"><span>💬</span> أسئلة نموذجية للزوار (ركن الميكروفون)</div>
+            <div class="questions-grid">
+                <div class="question-card">
+                    <h5>لأولياء الأمور:</h5>
+                    <p>1. كيف تصفون لنا أجواء الأبواب المفتوحة اليوم؟</p>
+                    <p>2. ما الذي لفت انتباهكم أكثر في الورشات التي زرتموها؟</p>
+                </div>
+                <div class="question-card">
+                    <h5>للتلاميذ:</h5>
+                    <p>1. ما هي أكثر ورشة أعجبتك اليوم ولماذا؟</p>
+                    <p>2. ما هو الشيء الجديد الذي تعلمته اليوم؟</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Director's Cinematography Guide (قائمة اللقطات الإخراجية) -->
+        <div class="section">
+            <div class="section-title"><span>🎬</span> رؤية المخرج (السيناريو البصري المقترح)</div>
+            <p class="instruction-item" style="margin-bottom: 20px;">بصفتي مخرج الحدث، هذه هي اللقطات التي ستجعل من الفيديو النهائي "تحفة سينمائية" ترويجية:</p>
+
+            <div class="questions-grid">
+                <!-- Morning: Atmosphere -->
+                <div class="question-card" style="border-right: 4px solid var(--brand-blue);">
+                    <h5 style="color: var(--brand-blue); text-decoration: underline;">1. لقطات الأجواء (Atmosphere & POV):</h5>
+                    <p>• <b>لقطة الدرون (أو لقطة علوية)</b>: للمؤسسة في الصباح الباكر وهي مستعدة بالديكورات والأعلام.</p>
+                    <p>• <b>لقطة POV (وجهة نظر الزائر)</b>: المصور يمشي من البوابة نحو مركز الاستقبال ليحاكي تجربة الآباء.</p>
+                    <p>• <b>لقطة التركيز المتغير (Rack Focus)</b>: من دليل الورشات في يد الزائر إلى واجهة المؤسسة في الخلفية.</p>
+                </div>
+
+                <!-- Workshops: Action -->
+                <div class="question-card" style="border-right: 4px solid var(--brand-gold);">
+                    <h5 style="color: var(--brand-gold); text-decoration: underline;">2. لقطات الحركة (Action & Emotion):</h5>
+                    <p>• <b>ورشة ركوب الخيل</b>: لقطة (Slow Motion) لحوافر الخيل، ثم لقطة قريبة جداً لعين الطفل وهي تلمع بالرهبة والحماس.</p>
+                    <p>• <b>ورشة الإعلاميات والبرمجة</b>: لقطة من خلف الشاشة (Over the shoulder) تظهر انعكاس الأكواد البرمجية على نظارات الطفل.</p>
+                    <p>• <b>ورشة المسرح</b>: لقطة (Low Angle) من أسفل المسرح تظهر الطفل وكأنه بطل حقيقي يتحدث للجمهور.</p>
+                </div>
+
+                <!-- Details: Art -->
+                <div class="question-card" style="border-right: 4px solid #10b981;">
+                    <h5 style="color: #10b981; text-decoration: underline;">3. لقطات التفاصيل (The Artistic B-Roll):</h5>
+                    <p>• <b>ورشة العجين والتجميل</b>: لقطات (Extreme Close-up) لحركة الأصابع وهي تشكل العجين، وامتزاج الألوان في ورشة الرسم.</p>
+                    <p>• <b>ورشة التغذية</b>: لقطة سينمائية لترتيب الفواكه والأطباق الصحية بطريقة فنية.</p>
+                    <p>• <b>الإذاعة المدرسية</b>: لقطة قريبة للميكروفون مع إضاءة "On Air" وظهور ذبذبات الصوت على الشاشة.</p>
+                </div>
+
+                <!-- Closing: Legacy -->
+                <div class="question-card" style="border-right: 4px solid #8b5cf6;">
+                    <h5 style="color: #8b5cf6; text-decoration: underline;">4. لقطات الختام (The Legacy):</h5>
+                    <p>• <b>السجل الذهبي</b>: لقطة (Macro) للقلم وهو يكتب كلمة "شكراً" أو "ممتاز" من طرف ولي أمر.</p>
+                    <p>• <b>حفل المسرح</b>: لقطة بانورامية (Pan) تظهر تصفيق الآباء وانحناءة التلاميذ في نهاية الحفل.</p>
+                    <p>• <b>لقطة النهاية</b>: لقطة وداع جماعية لجميع الأطر وهم يلوحون للكاميرا بابتسامة (Drone Pull-back).</p>
+                </div>
+            </div>
+
+            <!-- New Section: The Workshop Grand Tour Checklist -->
+            <div style="margin-top: 30px; border: 2px solid var(--brand-blue); padding: 20px; border-radius: 15px;">
+                <h5 style="color: var(--brand-blue); font-size: 1.3rem; font-weight: 900; margin-bottom: 15px; text-align: center;">🗺️ دليل جولة الورشات الشاملة (The Grand Tour)</h5>
+                <div class="questions-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="question-card"><b>🏇 ركوب الخيل</b>: لقطة عيون الطفل عند اعتلاء الخيل.</div>
+                    <div class="question-card"><b>🎭 المسرح</b>: لقطة انفعالات الوجه أثناء التشخيص.</div>
+                    <div class="question-card"><b>💻 الإعلاميات</b>: لقطة التركيز على الشاشة وتفاعل الأصابع.</div>
+                    <div class="question-card"><b>🎙️ الإذاعة</b>: لقطة "الصدمة الإيجابية" للطفل عند سماع صوته.</div>
+                    <div class="question-card"><b>💄 التجميل</b>: لقطة الألوان والريشة على الوجوه.</div>
+                    <div class="question-card"><b>🎨 الرسم والعجين</b>: لقطة المنتج النهائي بين يدي الطفل.</div>
+                    <div class="question-card"><b>🎎 الكراكيز</b>: لقطة (Reaction) لذهول الأطفال وهم يشاهدون المنشطات يححركن العرائس ببراعة.</div>
+                    <div class="question-card"><b>🍎 التربية الغذائية</b>: لقطة الفواكه الملونة والترتيب الصحي.</div>
+                    <div class="question-card"><b>🌱 البستنة</b>: لقطة الطفل وهو يلمس التراب أو يسقي النبتة.</div>
+                    <div class="question-card"><b>🎮 الألعاب</b>: لقطات سريعة (Action) تعكس الروح الرياضية.</div>
+                    <div class="question-card"><b>🖼️ المعرض</b>: لقطة بانورامية لإنجازات التلاميذ السنوية.</div>
+                    <div class="question-card"><b>📸 لقطات العبور</b>: تصوير المجموعات أثناء التنقل بانتظام.</div>
+                </div>
+            </div>
+
+            <!-- New Section: Advanced Filmmaking Tips -->
+            <div style="margin-top: 30px; background: #1e293b; color: white; padding: 25px; border-radius: 15px;">
+                <h5 style="color: var(--brand-gold); font-size: 1.3rem; font-weight: 900; margin-bottom: 15px;">🚀 تحسينات إضافية للفيديو النهائي (Director's Pro Tips)</h5>
+                <ul class="instruction-list">
+                    <li class="instruction-item" style="color: #e2e8f0;"><b>هندسة الصوت (Sound Design)</b>: اطلب من المصور تسجيل "أصوات طبيعية" (ضحكات الأطفال، تصفيق الآباء، صهيل الخيل) لدمجها مع الموسيقى الخلفية.</li>
+                    <li class="instruction-item" style="color: #e2e8f0;"><b>تقنية (Speed Ramping)</b>: استخدام حركة سريعة ثم بطيئة فجأة (Fast to Slow) في لقطات المسرح والألعاب لزيادة الحماس.</li>
+                    <li class="instruction-item" style="color: #e2e8f0;"><b>تصحيح الألوان (Color Grading)</b>: اعتماد ألوان دافئة (Warm) ومشرقة تعكس التفاؤل والبهجة التي تميز المؤسسة.</li>
+                    <li class="instruction-item" style="color: #e2e8f0;"><b>الانتقالات الذكية (Match Cuts)</b>: مثلاً انتقال من حركة يد ترسم في ورشة الرسم إلى حركة يد تعجن في ورشة العجين لخلق ترابط فني.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 6: Video Editing Structure (سيناريو المونتاج النهائي) -->
+        <div class="section">
+            <div class="section-title"><span>🎬</span> هيكلة الفيديوهات النهائية (Scenario)</div>
+            
+            <div class="questions-grid">
+                <!-- Video 1: Closing Ceremony -->
+                <div class="question-card" style="border: 2px solid var(--brand-gold);">
+                    <h5 style="color: var(--brand-gold); font-size: 1.2rem; font-weight: 900;">1. فيديو "حصاد اليوم" (عرض الحفل الختامي)</h5>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">المدة: 2-3 دقائق | الإيقاع: سريع جداً ومبهج</p>
+                    <ul style="list-style: decimal; padding-right: 20px; font-size: 0.95rem;">
+                        <li><b>الافتتاحية (0-15ث)</b>: لقطات سريعة جداً لتحضيرات الصباح واستقبال أول زائر (مع موسيقى حماسية).</li>
+                        <li><b>جولة الورشات (15ث-2د)</b>: مونتاج متداخل (Fast Cuts) لكل ورشة تظهر الضحكات والعمل اليدوي.</li>
+                        <li><b>الخاتمة (2د-النهاية)</b>: لقطات بطيئة (Slow Mo) لآباء وأبناء يغادرون بابتسامة، مع شكر لجميع الحاضرين.</li>
+                    </ul>
+                </div>
+
+                <!-- Video 2: Promotional Teaser -->
+                <div class="question-card" style="border: 2px solid var(--brand-blue);">
+                    <h5 style="color: var(--brand-blue); font-size: 1.2rem; font-weight: 900;">2. الفيديو الترويجي (لوسائل التواصل)</h5>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">المدة: 60-90 ثانية | الإيقاع: سينمائي وفخم</p>
+                    <ul style="list-style: decimal; padding-right: 20px; font-size: 0.95rem;">
+                        <li><b>هيبة المؤسسة (0-10ث)</b>: لقطة درون للمؤسسة + لوغو العمران + موسيقى أوركسترالية ملهمة.</li>
+                        <li><b>صوت الرؤية (10-30ث)</b>: صوت المديرة التربوية يتحدث عن "التميز والقيم" فوق أفضل لقطات الورشات.</li>
+                        <li><b>الشهادات (30-50ث)</b>: أقوى جملتين من تصريحات الآباء (Testimonials).</li>
+                        <li><b>الدعوة للعمل (Call to Action)</b>: لقطة الوداع الجماعي مع كتابة معلومات التسجيل وتاريخ الحدث القادم.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

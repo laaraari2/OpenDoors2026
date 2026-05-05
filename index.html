@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز القيادة | الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --bg: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text: #1e293b;
+            --text-light: #64748b;
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(26, 54, 93, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.05) 0px, transparent 50%);
+            font-family: 'Cairo', sans-serif;
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo-wrapper {
+            width: 130px;
+            height: 130px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 4px solid var(--secondary);
+            overflow: hidden;
+            animation: logoPulse 4s infinite ease-in-out;
+            position: relative;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+            50% { transform: scale(1.08); box-shadow: 0 20px 45px rgba(26, 54, 93, 0.25); }
+        }
+
+        .logo-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-right: 15px;
+            border-right: 5px solid var(--secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(26, 54, 93, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        footer span {
+            color: var(--secondary);
+            font-weight: 800;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo-wrapper">
+            <img src="logo.jpg" alt="Logo">
+        </div>
+        <h1>منصة التحكم المركزية</h1>
+        <p class="subtitle">فعالية الأبواب المفتوحة 2026 | GS Al Oumrane</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن وثيقة أو مورد..." onkeyup="filterCards()">
+    </div>
+
+    <!-- Category 1: البرمجة والجدولة -->
+    <div class="category-section" style="animation-delay: 0.1s">
+        <h2 class="category-title">🗓️ البرمجة والجدولة</h2>
+        <div class="grid">
+            <a href="open_doors_rotation.html" class="card">
+                <div class="card-icon">🕒</div>
+                <h3>جدول التناوب</h3>
+                <p>توزيع المجموعات على الورشات والحصص الزمنية</p>
+            </a>
+            <a href="open_doors_groups_summary.html" class="card">
+                <div class="card-icon">📊</div>
+                <h3>ملخص المجموعات</h3>
+                <p>إحصائيات وبيانات المجموعات المشاركة</p>
+            </a>
+            <a href="open_doors_closing_ceremony.html" class="card">
+                <div class="card-icon">🏆</div>
+                <h3>حفل الاختتام</h3>
+                <p>برنامج الفقرات الختامية ووداع الحضور</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Category 2: التدبير الإداري والتقني -->
+    <div class="category-section" style="animation-delay: 0.2s">
+        <h2 class="category-title">⚙️ التدبير الإداري والتقني</h2>
+        <div class="grid">
+            <a href="open_doors_technical_card.html" class="card">
+                <div class="card-icon">📑</div>
+                <h3>البطاقة التقنية</h3>
+                <p>التفاصيل اللوجستية والتقنية لكل ورشة</p>
+            </a>
+            <a href="open_doors_admin_memo.html" class="card">
+                <div class="card-icon">📝</div>
+                <h3>مذكرة التنظيم</h3>
+                <p>التوجيهات الإدارية ومهام فريق العمل</p>
+            </a>
+            <a href="open_doors_media_plan.html" class="card">
+                <div class="card-icon">📸</div>
+                <h3>التغطية الإعلامية</h3>
+                <p>خطة التصوير والتوثيق واللقاءات</p>
+            </a>
+            <a href="open_doors_mc_script.html" class="card">
+                <div class="card-icon">🎤</div>
+                <h3>سيناريو التنشيط</h3>
+                <p>مخطط الكلمات والتقديم خلال الحفل</p>
+            </a>
+            <a href="open_doors_reception_auth.html" class="card">
+                <div class="card-icon">🔑</div>
+                <h3>ترخيص الاستقبال</h3>
+                <p>صلاحيات ومهام خلية الاستقبال</p>
+            </a>
+            <a href="open_doors_exit_permit.html" class="card">
+                <div class="card-icon">🚪</div>
+                <h3>رخصة الخروج</h3>
+                <p>نموذج السماح للتلاميذ بالمغادرة</p>
+            </a>
+            <a href="open_doors_guide_card.html" class="card">
+                <div class="card-icon">🪪</div>
+                <h3>بطاقة المرافقة</h3>
+                <p>تتبع مسار الأقسام ولائحة التلاميذ</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Category 3: الهوية والتواصل -->
+    <div class="category-section" style="animation-delay: 0.3s">
+        <h2 class="category-title">🎨 الهوية والتواصل</h2>
+        <div class="grid">
+            <a href="badge_animateurs.html" class="card">
+                <div class="card-icon">🏷️</div>
+                <h3>بادجات المنشطين</h3>
+                <p>بطاقات التعريف الخاصة بفريق التنشيط</p>
+            </a>
+            <a href="open_doors_reception_badge.html" class="card">
+                <div class="card-icon">🎖️</div>
+                <h3>بادج الاستقبال</h3>
+                <p>بطاقات التعريف لخلية الاستقبال</p>
+            </a>
+            <a href="open_doors_workshop_signs.html" class="card">
+                <div class="card-icon">🖼️</div>
+                <h3>يافطات الورشات</h3>
+                <p>لوحات تعريفية لمداخل الورشات</p>
+            </a>
+            <a href="open_doors_signage.html" class="card">
+                <div class="card-icon">🚩</div>
+                <h3>لافتات التوجيه</h3>
+                <p>إرشادات المسارات داخل المؤسسة</p>
+            </a>
+            <a href="open_doors_poster_fr.html" class="card">
+                <div class="card-icon">📢</div>
+                <h3>ملصق الفعالية</h3>
+                <p>البوستر الإعلاني الرئيسي (FR)</p>
+            </a>
+            <a href="open_doors_poster_workshops.html" class="card">
+                <div class="card-icon">🗺️</div>
+                <h3>ملصق الورشات</h3>
+                <p>دليل شامل للورشات الـ 15</p>
+            </a>
+            <a href="open_doors_strategic_flyer.html" class="card">
+                <div class="card-icon">📄</div>
+                <h3>المطوية الاستراتيجية</h3>
+                <p>خطة وبرنامج الفعالية بشكل مفصل</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Category 4: فضاء الزوار -->
+    <div class="category-section" style="animation-delay: 0.4s">
+        <h2 class="category-title">👥 فضاء الزوار والتقييم</h2>
+        <div class="grid">
+            <a href="open_doors_visitor_log.html" class="card">
+                <div class="card-icon">🖋️</div>
+                <h3>سجل الزوار</h3>
+                <p>تسجيل بيانات ضيوف الأبواب المفتوحة</p>
+            </a>
+            <a href="open_doors_guest_book.html" class="card">
+                <div class="card-icon">📖</div>
+                <h3>الدفتر الذهبي</h3>
+                <p>كلمات وانطباعات الزوار والمشاركين</p>
+            </a>
+            <a href="open_doors_feedback.html" class="card">
+                <div class="card-icon">⭐</div>
+                <h3>استمارة التقييم</h3>
+                <p>قياس رضا الزوار عن جودة الورشات</p>
+            </a>
+            <a href="open_doors_map.html" class="card">
+                <div class="card-icon">📍</div>
+                <h3>خريطة الفعالية</h3>
+                <p>مخطط مواقع الورشات والمرافق</p>
+            </a>
+            <a href="open_doors_reception_forms.html" class="card">
+                <div class="card-icon">📋</div>
+                <h3>نماذج الاستقبال</h3>
+                <p>مجموعة الوثائق الخاصة بالولوج</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Category 5: المعدات واللوجستيك -->
+    <div class="category-section" style="animation-delay: 0.5s">
+        <h2 class="category-title">📦 المعدات واللوجستيك</h2>
+        <div class="grid">
+            <a href="open_doors_workshop_form.html" class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>بطاقة الورشة</h3>
+                <p>جرد الاحتياجات والمعدات المطلوبة</p>
+            </a>
+            <a href="open_doors_mic_setup.html" class="card">
+                <div class="card-icon">🔊</div>
+                <h3>إعدادات الصوت</h3>
+                <p>مخطط توزيع مكبرات الصوت</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 مجموعة مدارس <span>العمران</span> - تنظيم وإبداع
+    </footer>
+</div>
+
+<script>
+    function filterCards() {
+        let input = document.getElementById('searchInput');
+        let filter = input.value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            let p = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+            if (title.includes(filter) || p.includes(filter)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

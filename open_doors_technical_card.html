@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البطاقة التقنية للأبواب المفتوحة - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #ea580c;
+            --accent: #c2912e;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        /* Premium Header */
+        .header {
+            background: var(--gradient);
+            padding: 60px 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .event-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .event-emblem {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            transform: rotate(-5deg);
+        }
+
+        .event-emblem::before {
+            content: '🔑';
+            font-size: 4rem;
+        }
+
+        .event-emblem::after {
+            content: '2026';
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 900;
+            transform: rotate(5deg);
+        }
+
+        .slogan {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fcd34d; /* Golden yellow */
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 500;
+            letter-spacing: 3px;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 50px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: #f1f5f9;
+            padding: 25px;
+            border-radius: 16px;
+            border-right: 6px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .section-title .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Table Style */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            border: 2px solid var(--primary);
+        }
+
+        th {
+            background: #f8fafc;
+            padding: 18px;
+            font-weight: 800;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        td {
+            padding: 25px 18px;
+            border: 1px solid var(--primary);
+            font-weight: 500;
+        }
+
+        /* Column widths */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 18%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 22%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 25%;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 35%;
+        }
+
+        tr:hover td {
+            background: #fdfdfd;
+        }
+
+        /* Needs List */
+        .needs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .need-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .need-icon {
+            width: 45px;
+            height: 45px;
+            background: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .need-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .need-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px;
+            background: #f8fafc;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .signature-box {
+            text-align: center;
+            width: 200px;
+        }
+
+        .signature-line {
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 10px;
+            height: 60px;
+        }
+
+        .signature-box p {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                width: 100%;
+                border-radius: 0;
+            }
+
+            .controls,
+            .global-floating-nav {
+                display: none !important;
+            }
+
+            .header {
+                padding: 40px;
+            }
+
+            .info-card {
+                background: #fff !important;
+                border: 1px solid #eee;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 25px;
+            }
+        }
+
+        /* Admin Controls */
+        .admin-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .btn-edit { background: #64748b; color: white; }
+        .btn-save { background: #10b981; color: white; }
+        .btn-add { background: var(--primary); color: white; margin-top: 15px; width: 100%; display: none; }
+        .delete-btn { color: #ef4444; cursor: pointer; font-size: 1.2rem; display: none; }
+        .editable [contenteditable="true"] { 
+            background: #fffbeb; 
+            outline: 2px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.4;
+            padding: 40px 20px;
+        }
+
+        @media print {
+            body { padding: 10mm; background: white; }
+            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; }
+            .controls, .admin-controls, .btn-add, .delete-btn, .no-print { display: none !important; }
+            .print-page-break, .section { page-break-before: always; margin-top: 10px; break-inside: avoid; }
+            .section:first-of-type { page-break-before: auto; }
+            .section { margin-bottom: 10px; }
+            .timeline { padding: 0 !important; margin-right: 10px !important; }
+            .timeline-item { margin-bottom: 8px !important; padding-right: 30px !important; }
+            .timeline-item::after { top: 2px !important; width: 10px !important; height: 10px !important; }
+            .time-tag { padding: 2px 8px !important; font-size: 0.8rem !important; }
+            .activity-title { font-size: 1rem !important; }
+            .activity-desc { font-size: 0.8rem !important; }
+        }
+        /* Floating Back Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e3a8a;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #ea580c;
+        }
+        @media print {
+            .back-home { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls no-print">
+        <button onclick="window.print()" class="btn btn-secondary">🖨️ طباعة البطاقة</button>
+        <button class="btn btn-primary" onclick="history.back()">🔙 العودة</button>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="event-logo-container">
+                <div class="event-emblem"></div>
+                <div class="slogan" style="font-size: 2.2rem; font-weight: 900; color: #fcd34d; text-shadow: 0 4px 15px rgba(0,0,0,0.4);">نفتح الأبواب.. لنبني الأجيال</div>
+            </div>
+        </div>
+
+        <div class="content" style="padding-top: 20px; text-align: center;">
+            <div style="font-family: 'Tajawal', sans-serif; color: var(--secondary); font-size: 1.8rem; font-weight: 900; margin: 0 0 20px; padding: 10px; border-top: 2px solid #eee; border-bottom: 2px solid #eee;">
+                تحت شعار: "من أجل بيئة تعليمية محفزة للابتكار والتميز"
+            </div>
+            <h1 style="font-size: 3.5rem; font-weight: 900; color: var(--primary); margin-bottom: 5px; text-transform: uppercase;">البطاقة التقنية واللوجستية</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); font-weight: 700; letter-spacing: 2px; margin-bottom: 30px;">PORTES OUVERTES 2026 - GS AL OUMRANE</p>
+            
+            <!-- Admin Toggle -->
+            <div class="admin-controls no-print">
+                <button class="btn btn-edit" id="toggleEdit" onclick="toggleEditMode()">🔓 تفعيل التعديل</button>
+                <button class="btn btn-save" onclick="saveToLocal()" id="saveBtn" style="display:none;">💾 حفظ التغييرات</button>
+                <button class="btn btn-secondary" onclick="resetData()" id="resetBtn">🔄 استعادة الأصلي</button>
+            </div>
+            <!-- Key Info -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📅 تاريخ الإنجاز / DATE</h3>
+                    <div class="value">السبت 16 ماي 2026</div>
+                </div>
+                <div class="info-card">
+                    <h3>⏰ التوقيت العام / HORAIRE</h3>
+                    <div class="value">من 09:00 إلى 17:00</div>
+                </div>
+            </div>
+
+            <!-- Detailed Program Timeline -->
+            <div class="section print-page-break">
+                <div class="section-title">
+                    <h2>البرنامج الزمني التفصيلي</h2>
+                    <span class="badge">CHRONOLOGIE</span>
+                </div>
+                <div class="timeline">
+                    <style>
+                        .timeline {
+                            position: relative;
+                            padding: 20px 0;
+                            border-right: 3px solid var(--primary);
+                            margin-right: 20px;
+                        }
+
+                        .timeline-item {
+                            position: relative;
+                            margin-bottom: 30px;
+                            padding-right: 40px;
+                        }
+
+                        .timeline-item::after {
+                            content: '';
+                            position: absolute;
+                            top: 5px;
+                            right: -9px;
+                            width: 15px;
+                            height: 15px;
+                            background: var(--secondary);
+                            border-radius: 50%;
+                            border: 3px solid white;
+                            box-shadow: 0 0 0 3px var(--primary);
+                        }
+
+                        .time-tag {
+                            display: inline-block;
+                            background: var(--primary);
+                            color: white;
+                            padding: 4px 12px;
+                            border-radius: 6px;
+                            font-weight: 800;
+                            font-family: 'Outfit', sans-serif;
+                            margin-bottom: 8px;
+                        }
+
+                        .activity-title {
+                            font-size: 1.2rem;
+                            font-weight: 800;
+                            color: var(--text-main);
+                        }
+
+                        .activity-desc {
+                            font-size: 0.95rem;
+                            color: var(--text-muted);
+                        }
+                    </style>
+                    <div class="timeline-item">
+                        <div class="time-tag">09:00</div>
+                        <div class="activity-title">استقبال التلاميذ</div>
+                        <div class="activity-desc">ACCUEIL DES ÉLÈVES</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">09:45</div>
+                        <div class="activity-title">التجمع في الساحة والافتتاح</div>
+                        <div class="activity-desc">تنشيط جماعي - تحية العلم الوطني</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">10:00</div>
+                        <div class="activity-title">انطلاق الورشات (الفترة الصباحية)</div>
+                        <div class="activity-desc">DÉBUT DES ATELIERS - SESSION MATIN</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">12:30</div>
+                        <div class="activity-title">استراحة الغداء</div>
+                        <div class="activity-desc">PAUSE DÉJEUNER</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">14:30</div>
+                        <div class="activity-title">استئناف أنشطة الورشات</div>
+                        <div class="activity-desc">REPRISE DES ATELIERS</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">16:00</div>
+                        <div class="activity-title">فقرات فنية بقاعة المسرح</div>
+                        <div class="activity-desc">تنشيد - فقرات فنية متنوعة - تجمع التلاميذ</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-tag">17:00</div>
+                        <div class="activity-title">اختتام الأبواب المفتوحة</div>
+                        <div class="activity-desc">CLÔTURE DE L'ÉVÉNEMENT</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preparations Section -->
+            <div class="section">
+                <div class="section-title">
+                    <h2>مخطط الاستعدادات والإعداد القبلي</h2>
+                    <span class="badge">PRÉPARATIFS</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المهمة الإعدادية</th>
+                                <th style="width: 200px;">التاريخ المحدد</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>توزيع المهام والمسؤوليات (الورشات)</td>
+                                <td>22 أبريل 2026</td>
+                            </tr>
+                            <tr>
+                                <td>اجتماع تنسيقي مع الإدارة العامة</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>اجتماع مع الطاقم التربوي (منشطون - مرافقات)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>تهييء وفحص الورشات والفضاءات</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>توزيع الحاجيات واللوازم الضرورية</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>تنظيم الورشات (توزيع الكراسي، الطاولات، المعدات...)</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Workshop Facilitators -->
+            <div class="section">
+                <div class="section-title">
+                    <h2>لائحة منشطي الورشات</h2>
+                    <span class="badge">ANIMATEURS</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم المنشط(ة)</th>
+                                <th>الورشة / الفضاء</th>
+                                <th>الحاجيات / اللوازم</th>
+                                <th>الملاحظات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>رحوص سمية</td>
+                                <td>ورشة التجميل (Esthétique)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>ايت زمان - طماطم خديجة</td>
+                                <td>ورشة العجين (Pâte à modeler)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>ايت زمان - طماطم خديجة - رحوص سمية</td>
+                                <td>الكراكيز + حكي (Marionnettes)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>سارة الهبطي</td>
+                                <td>الألعاب التربوية 1</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>نورة</td>
+                                <td>الألعاب التربوية 2</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>زهرة فهمي</td>
+                                <td>التربية الغذائية (Nutrition)</td>
+                                <td></td>
+                                <td>الأستاذة ستقوم بتحضير التجهيزات المعتادة للورشة</td>
+                            </tr>
+                            <tr>
+                                <td>هدى </td>
+                                <td>البستنة (Jardinage)</td>
+                                <td></td>
+                                <td>البستاني المهدي سيقوم بشرح عملية زرع البذور للتلاميذ، مع قيام أحد التلاميذ بتطبيق
+                                    العملية</td>
+                            </tr>
+                            <tr>
+                                <td>زينب زروال - مصطفى لعرعري</td>
+                                <td>المسرح (Théâtre)</td>
+                                <td>Sonorisation - DATASHOW</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>عبد الواحد (أو من ينوب عنه)</td>
+                                <td>ركوب الخيل (Équitation)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>فتيحة الصيادي - سناء فتيحي</td>
+                                <td>المكتبة (Bibliothèque)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>ذ. الإعلاميات</td>
+                                <td>الإعلاميات (Informatique)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>نسيمة الهري</td>
+                                <td>الرسم (Dessin)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>قابوس ليلى</td>
+                                <td>المعرض (Exposition)</td>
+                                <td></td>
+                                <td>عرض جميع المنتوجات والوسائل التي تم إعدادها في مختلف الأنشطة المدرسية خلال السنة
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>عفان عائشة - نورة مجيد</td>
+                                <td>الإذاعة المدرسية (Radio)</td>
+                                <td>Sonorisation - Radio Studio</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>بشرى ياشين</td>
+                                <td>الاستقبال والتسجيل</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>عفان عائشة - نورة مجيد</td>
+                                <td>الإذاعة المدرسية (Radio)</td>
+                                <td></td>
+                                <td></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <!-- Updated Chaperone List -->
+            <div class="section">
+                <div class="section-title">
+                    <h2>لائحة المرافقات والتحقق</h2>
+                    <span class="badge">ACCOMPAGNATRICES & ÉMARGEMENT</span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 80px;">الرقم</th>
+                                <th>القسم</th>
+                                <th>اسم المرافقة</th>
+                                <th style="width: 200px;">الإمضاء</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>MS</td><td>فتيحة</td><td></td></tr>
+                            <tr><td>2</td><td>GS</td><td>فتيحة</td><td></td></tr>
+                            <tr><td>3</td><td>CA (A)</td><td>حسناء طاهري</td><td></td></tr>
+                            <tr><td>4</td><td>CP (B)</td><td>حسناء طاهري</td><td></td></tr>
+                            <tr><td>5</td><td>CE1 (A)</td><td>حسناء طاهري</td><td></td></tr>
+                            <tr><td>6</td><td>CE1 (B)</td><td>حسناء طاهري</td><td></td></tr>
+                            <tr><td>7</td><td>CE2 (A)</td><td>لبنى</td><td></td></tr>
+                            <tr><td>8</td><td>CE2 (B)</td><td>لبنى</td><td></td></tr>
+                            <tr><td>9</td><td>CM1 (A)</td><td>عواطف محب</td><td></td></tr>
+                            <tr><td>10</td><td>CM1 (B)</td><td>زوهرة خرباق</td><td></td></tr>
+                            <tr><td>11</td><td>CM2</td><td>نعيمة فهومي</td><td></td></tr>
+                            <tr><td>13</td><td>6 (A)</td><td>خديجة البهلولي</td><td></td></tr>
+                            <tr><td>14</td><td>6 (B)</td><td>عفان عائشة</td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- General Logistics -->
+        <div class="section">
+            <div class="section-title">
+                <h2>اللوازم اللوجستيكية العامة</h2>
+                <span class="badge">LOGISTIQUE</span>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المادة / التجهيز</th>
+                            <th>الكمية / الملاحظات</th>
+                            <th>التكلفة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sonorisation (الصوتيات)</td>
+                            <td>تجهيز الساحة ومختلف الفضاءات</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Mascottes (دمى تنكرية)</td>
+                            <td>أشخاص بملابس تنكرية (ميكي ماوس...) عند المدخل للاستقبال</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>بالونات (Ballons) متنوعة</td>
+                            <td>تزيين المداخل وفضاءات الورشات</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>قبعات (Casquettes) تحمل شعار المؤسسة</td>
+                            <td>حسب عدد الأساتذة والمنشطين المتواجدين</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>شارات التعريف (Badges)</td>
+                            <td>لكافة الأطقم التربوية والإدارية</td>
+                        </tr>
+                        <tr>
+                            <td>وجبة الغداء</td>
+                            <td>لكافة المشاركين والمنظمين</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="footer">
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p>توقيع الإدارة التقنية</p>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line"></div>
+                <p>مصادقة الإدارة العامة</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let editMode = false;
+
+        function toggleEditMode() {
+            editMode = !editMode;
+            const btn = document.getElementById('toggleEdit');
+            const saveBtn = document.getElementById('saveBtn');
+            const addBtns = document.querySelectorAll('.btn-add');
+            const deleteBtns = document.querySelectorAll('.delete-btn');
+            const actionCols = document.querySelectorAll('.actions-col');
+            const tableCells = document.querySelectorAll('tbody td:not(.actions-col)');
+
+            if (editMode) {
+                btn.innerHTML = "🔒 إغلاق التعديل";
+                btn.classList.add('btn-secondary');
+                saveBtn.style.display = "inline-block";
+                addBtns.forEach(b => b.style.display = "block");
+                deleteBtns.forEach(b => b.style.display = "inline-block");
+                actionCols.forEach(c => c.style.display = "table-cell");
+                tableCells.forEach(e => e.setAttribute('contenteditable', 'true'));
+                document.body.classList.add('editable');
+            } else {
+                btn.innerHTML = "🔓 تفعيل التعديل";
+                btn.classList.remove('btn-secondary');
+                saveBtn.style.display = "none";
+                addBtns.forEach(b => b.style.display = "none");
+                deleteBtns.forEach(b => b.style.display = "none");
+                actionCols.forEach(c => c.style.display = "none");
+                tableCells.forEach(e => e.setAttribute('contenteditable', 'false'));
+                document.body.classList.remove('editable');
+            }
+        }
+
+        function addRow(btn) {
+            const table = btn.previousElementSibling.querySelector('table');
+            const tbody = table.querySelector('tbody');
+            const newRow = tbody.insertRow();
+            const headerCells = table.querySelectorAll('thead th');
+
+            headerCells.forEach((th, index) => {
+                const cell = newRow.insertCell(index);
+                if (th.classList.contains('actions-col')) {
+                    cell.className = "no-print actions-col";
+                    cell.style.display = "table-cell";
+                    cell.innerHTML = '<span class="delete-btn" style="display:inline-block" onclick="deleteRow(this)">🗑️</span>';
+                } else {
+                    cell.setAttribute('contenteditable', 'true');
+                    cell.innerHTML = "...";
+                }
+            });
+        }
+
+        function deleteRow(btn) {
+            if (confirm("هل أنت متأكد من حذف هذا السطر؟")) {
+                const row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        }
+
+        function saveToLocal() {
+            if(editMode) toggleEditMode();
+            const data = {
+                content: document.querySelector('.content').innerHTML
+            };
+            localStorage.setItem('aloumrane_tech_card_v3', JSON.stringify(data));
+            alert("✅ تم حفظ التغييرات بنجاح في المتصفح!");
+        }
+
+        function loadFromLocal() {
+            const data = JSON.parse(localStorage.getItem('aloumrane_tech_card_v3'));
+            if (data) {
+                document.querySelector('.content').innerHTML = data.content;
+            }
+        }
+
+        function resetData() {
+            if (confirm("سيتم مسح جميع التعديلات المحفوظة والعودة للنسخة الأصلية. هل أنت متأكد؟")) {
+                localStorage.removeItem('aloumrane_tech_card_v3');
+                location.reload();
+            }
+        }
+
+        window.onload = loadFromLocal;
+
+        // Initialize table headers for action column
+        document.querySelectorAll('table').forEach(table => {
+            if (!table.querySelector('.actions-col')) {
+                const th = document.createElement('th');
+                th.className = "no-print actions-col";
+                th.style.display = "none";
+                th.style.width = "50px";
+                th.innerHTML = "-";
+                table.querySelector('thead tr').prepend(th);
+                
+                table.querySelectorAll('tbody tr').forEach(row => {
+                    const td = document.createElement('td');
+                    td.className = "no-print actions-col";
+                    td.style.display = "none";
+                    td.innerHTML = '<span class="delete-btn" onclick="deleteRow(this)">🗑️</span>';
+                    row.prepend(td);
+                });
+            }
+        });
+
+        // Initialize "Add Row" buttons
+        document.querySelectorAll('.table-container').forEach(container => {
+            if (!container.nextElementSibling || !container.nextElementSibling.classList.contains('btn-add')) {
+                const btn = document.createElement('button');
+                btn.className = "btn btn-add no-print";
+                btn.innerHTML = "➕ إضافة سطر جديد";
+                btn.onclick = function() { addRow(this); };
+                container.after(btn);
+            }
+        });
+    </script>
+</body>
+
+</html>

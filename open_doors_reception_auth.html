@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إذن إداري ومهام مركز الاستقبال - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #9a3412;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            padding: 40px;
+            color: #1f2937;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .document-container {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--white);
+            margin: 0 auto;
+            padding: 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            border-top: 10px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .school-info h1 { 
+            font-size: 1.5rem; 
+            color: var(--primary); 
+            font-weight: 900; 
+            margin: 0; 
+        }
+        .school-info p { 
+            font-size: 0.95rem; 
+            margin: 5px 0; 
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .auth-label {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .doc-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .doc-title h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 900;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+        .doc-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-header {
+            background-color: #f1f5f9;
+            border-right: 6px solid var(--primary);
+            padding: 10px 20px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header span {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 15px;
+            font-size: 0.9rem;
+        }
+
+        .content-block {
+            padding: 0 10px;
+            font-size: 1.05rem;
+        }
+
+        .auth-text {
+            border: 2px dashed var(--border);
+            padding: 20px;
+            background: #fffcf0;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: justify;
+        }
+
+        .tasks-list, .papers-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tasks-list li, .papers-list li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.2s;
+        }
+        .tasks-list li:hover {
+            border-color: var(--primary);
+            transform: translateX(-5px);
+        }
+        .tasks-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 900;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        .papers-list li {
+            background: #fdf2f2;
+            border-right: 4px solid var(--accent);
+        }
+        .papers-list li::before {
+            content: '📄';
+            margin-left: 15px;
+        }
+
+        .signature-section {
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .signature-box {
+            text-align: center;
+            width: 250px;
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            background: #fcfcfc;
+        }
+        .signature-box p {
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .no-print-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-print { background: var(--primary); color: white; }
+        .btn-back { background: #64748b; color: white; text-decoration: none; text-align: center; font-size: 0.9rem; }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .document-container { box-shadow: none; margin: 0; border-top: none; }
+            .no-print-controls { display: none; }
+            .tasks-list li:hover { transform: none; }
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 8rem;
+            color: rgba(26, 54, 93, 0.03);
+            font-weight: 900;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="no-print-controls">
+        <button class="btn btn-print" onclick="window.print()">🖨️ طباعة المستند</button>
+        <a href="open_doors_admin_memo.html" class="btn btn-back">⬅️ العودة للمذكرة الإدارية</a>
+    </div>
+
+    <div class="document-container">
+        <div class="watermark">AL OUMRANE</div>
+        
+        <div class="header">
+            <div class="school-info">
+                <span class="auth-label">مستند رسمي تنظيمي</span>
+                <h1>مجموعة مدارس العمران</h1>
+                <p>قسم الإدارة واللوجستيك</p>
+                <p>موسم: 2025 - 2026</p>
+            </div>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo" style="height: 100px;">
+            </div>
+        </div>
+
+        <div class="doc-title">
+            <h2>إذن رسمي ومهام تدبير مركز الاستقبال</h2>
+        </div>
+
+        <!-- Section: Official Authorization -->
+        <div class="section">
+            <div class="section-header"><span>1</span> الإذن الإداري الرسمي</div>
+            <div class="content-block">
+                <div class="auth-text">
+                    بموجب هذه الوثيقة، يُرخص للمسؤول(ة) عن <span style="color: var(--accent);">مركز الاستقبال (Reception Center)</span> ممارسة كافة الصلاحيات التنظيمية اللازمة لضبط عملية توافد الزوار، وتدبير خروج التلاميذ الاستثنائي، والتنسيق المباشر مع خلية الأمن المدرسي والمرافقات، وذلك لضمان السير العادي لفعاليات "الأبواب المفتوحة 2026".
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Tasks (The 6th Section) -->
+        <div class="section">
+            <div class="section-header"><span>سادساً</span> مهام مركز الاستقبال والتوجه</div>
+            <div class="content-block">
+                <ul class="tasks-list">
+                    <li><strong>الترحيب والتوجيه الأولي:</strong> استقبال أولياء الأمور والزوار بابتسامة مهنية وتقديم "دليل الزائر" وخريطة الورشات.</li>
+                    <li><strong>ضبط سجل الزوار:</strong> تسجيل أسماء الوافدين، وتوقيت الدخول، وتوزيع شارات "زائر" إذا لزم الأمر.</li>
+                    <li><strong>إدارة المغادرات الاستثنائية:</strong> مركز الاستقبال هو الجهة الوحيدة المخولة بتسليم <span style="color: var(--accent); font-weight: 700;">"إذن كتابي بالمغادرة"</span> للتلاميذ الذين يطلب أولياؤهم اصطحابهم قبل انتهاء الفعاليات.</li>
+                    <li><strong>التواصل مع المرافقات:</strong> إخطار المرافقة المعنية عبر وسيلة التواصل المعتمدة بقدوم ولي أمر التلميذ(ة) لتسهيل عملية التسليم دون إحداث فوضى في الورشة.</li>
+                    <li><strong>مركز المعلومات اللوجستيكي:</strong> تقديم شروحات حول توقيت الفواصل الزمنية، ومواقع الخدمات (المصلى، المرافق الصحية، نقطة التجمع).</li>
+                    <li><strong>إدارة المفقودات:</strong> اعتبار مركز الاستقبال هو "نقطة تجميع المفقودات" والتبليغ عنها فوراً.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section: Required Papers/Documents -->
+        <div class="section">
+            <div class="section-header"><span>أوراق</span> الوثائق واللوازم الضرورية بالمركز</div>
+            <div class="content-block">
+                <p style="margin-bottom: 15px; font-weight: 600;">يجب أن تتوفر في مكتب الاستقبال الأوراق واللوازم التالية:</p>
+                <ul class="papers-list">
+                    <li><strong>سجل الوافدين (Visitor Log):</strong> دفتر مهني لتسجيل البيانات <a href="open_doors_reception_forms.html" style="color: var(--accent); font-size: 0.8rem;">(تحميل النموذج)</a>.</li>
+                    <li><strong>بطاقات "إذن بالمغادرة" (Exit Permits):</strong> مطبوعات جاهزة للتعبئة والتوقيع <a href="open_doors_reception_forms.html" style="color: var(--accent); font-size: 0.8rem;">(تحميل النموذج)</a>.</li>
+                    <li><strong>دليل الورشات والخرائط:</strong> نسخ كافية للتوزيع على الزوار.</li>
+                    <li><strong>قائمة هواتف الطوارئ:</strong> تضم أرقام الإدارة، خلية الصيانة، والمراقبين.</li>
+                    <li><strong>شارة المسؤولية:</strong> شارة خاصة تميز المكلف بالمركز عن باقي المتطوعين <a href="open_doors_reception_badge.html" style="color: var(--accent); font-size: 0.8rem;">(طباعة الشارة)</a>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>توقيع الإدارة التربوية</p>
+                <div style="border-bottom: 1px dotted #ccc; width: 80%; margin: 0 auto;"></div>
+            </div>
+            <div class="signature-box">
+                <p>مصادقة السيد المدير العام</p>
+                <div style="border-bottom: 1px dotted #ccc; width: 80%; margin: 0 auto;"></div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; font-size: 0.85rem; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+            جميع الحقوق محفوظة - مجموعة مدارس العمران 2026 ©
+        </div>
+    </div>
+
+</body>
+</html>

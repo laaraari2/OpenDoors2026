@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>سجل الوافدين والزوار - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #9a3412;
+            --white: #ffffff;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+            padding: 20px;
+        }
+
+        .page-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 15mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .school-info h1 { font-size: 1.6rem; color: var(--primary); font-weight: 900; }
+        .school-info p { font-size: 1rem; color: var(--accent); font-weight: 700; }
+
+        .logo img { height: 80px; }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .title-section h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 900;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 0.9rem;
+        }
+
+        td {
+            height: 45px;
+            font-size: 0.95rem;
+        }
+
+        .col-id { width: 40px; }
+        .col-name { width: 220px; }
+        .col-phone { width: 150px; }
+        .col-time { width: 80px; }
+        .col-purpose { width: 180px; }
+        .col-signature { width: 120px; }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 10rem;
+            color: rgba(26, 54, 93, 0.02);
+            font-weight: 900;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-container { margin: 0; box-shadow: none; padding: 10mm; }
+            .no-print { display: none; }
+        }
+
+        .no-print {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        /* Floating Back Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: var(--accent);
+        }
+        @media print {
+            .back-home { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">🖨️ طباعة السجل (A4)</button>
+        <a href="open_doors_reception_forms.html" class="btn" style="background: #64748b;">⬅️ العودة للنماذج</a>
+    </div>
+
+    <div class="page-container">
+        <div class="watermark">AL OUMRANE</div>
+        
+        <div class="header">
+            <div class="school-info">
+                <h1>مجموعة مدارس العمران</h1>
+                <p>قسم الإدارة واللوجستيك - الأبواب المفتوحة 2026</p>
+            </div>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h2>سجل توافد الزوار والوافدين</h2>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-id">#</th>
+                    <th class="col-name">اسم الزائر الكامل</th>
+                    <th class="col-phone">رقم الهاتف</th>
+                    <th class="col-time">ساعة الدخول</th>
+                    <th class="col-purpose">الغرض من الزيارة / ملاحظة</th>
+                    <th class="col-signature">التوقيع</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 15 Rows for entry -->
+                <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>10</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>11</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>12</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>13</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>14</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>15</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>16</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>17</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>18</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 30px; font-size: 0.8rem; color: #64748b; text-align: left;">
+            الصفحة رقم: .......
+        </div>
+    </div>
+
+</body>
+</html>

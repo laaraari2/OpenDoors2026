@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج الأبواب المفتوحة - Pocket Program - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d; --brand-navy: #0f172a; --brand-orange: #ea580c; --brand-gold: #c2912e;
+            --lc-ms: #ef4444; --lc-gs: #3b82f6; --lc-cp: #facc15; --lc-ce1: #a855f7;
+            --lc-ce2: #06b6d4; --lc-cm1: #f97316; --lc-cm2: #2563eb; --lc-mgs: #b45309; --lc-6: #dc2626;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { 
+            font-family: 'Tajawal', sans-serif; background-color: #fff; color: #000; padding: 2px; 
+            print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        }
+        
+        .print-page { width: 210mm; margin: 0 auto; display: flex; flex-direction: column; gap: 8mm; padding: 10mm; }
+
+        .program-card {
+            background: white; border: 2px solid #000; padding: 12px;
+            position: relative; height: 140mm; display: flex; flex-direction: column; overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .header { 
+            display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 8px; 
+            background: #fff; padding: 8px 12px; border-radius: 8px; color: #000;
+            border: 2.5px solid #000;
+        }
+        .header .school-info { text-align: right; width: 45%; display: flex; flex-direction: column; justify-content: center; }
+        .header .school-info h1 { font-size: 1.15rem; font-weight: 950; letter-spacing: -0.5px; margin-bottom: 2px; color: #000; }
+        .header .school-info h2 { font-size: 0.9rem; color: #444; font-weight: 800; white-space: nowrap; }
+        
+        .header .logo-container { width: 25%; display: flex; justify-content: center; align-items: center; }
+        .header .school-logo { max-height: 55px; object-fit: contain; }
+
+        .header .event-meta { text-align: left; display: flex; flex-direction: column; justify-content: space-between; border-left: 2px solid #000; padding-left: 15px; width: 30%; }
+        .header .event-meta h1 { font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: #000; font-weight: 950; }
+        .header .event-meta p { font-size: 0.6rem; color: #555; font-weight: 800; text-transform: uppercase; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.65rem; table-layout: fixed; border: 2px solid #000; }
+        th, td { padding: 2px 1px; text-align: center; height: 22px; border: 1px solid #000; vertical-align: middle; }
+        th { background: #f1f1f1; color: #000; font-weight: 950; font-size: 0.6rem; height: 26px; }
+        
+        .workshop-col { 
+            width: 100px; font-weight: 950; color: #000; background: #fff !important; 
+            text-align: right; padding-right: 6px; font-size: 0.65rem; 
+            border-left: 2px solid #000; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+        }
+
+        .level-tag { 
+            display: inline-block; padding: 1.5px 0; border-radius: 20px; font-weight: 950; 
+            color: #000; font-size: 0.55rem; width: 38px; text-align: center; 
+            border: 1.5px solid #000; background: #fff; white-space: nowrap;
+        }
+
+        .break-col { 
+            width: 20px; background: #f1f5f9; writing-mode: vertical-rl; 
+            font-size: 0.6rem; color: #000; font-weight: 950; border: 1.5px solid #000;
+            text-transform: uppercase; letter-spacing: 3px; text-align: center;
+        }
+        td.break-col { background: #f1f5f9; }
+
+        .closing-col { 
+            width: 28px; background: #fffbeb; writing-mode: vertical-rl; 
+            font-size: 0.65rem; color: #b45309; font-weight: 950; border: 1.5px solid #000;
+            text-align: center; line-height: 1.3;
+        }
+        td.closing-col { background: #fffbeb; }
+
+        .footer-note { 
+            margin-top: auto; padding-top: 5px; font-size: 0.55rem; color: #444; 
+            font-weight: 800; border-top: 2.5px solid #000; display: flex; justify-content: space-between;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .extra-activities-note {
+            margin-top: 6px; font-size: 0.7rem; color: var(--brand-blue); font-weight: 900;
+            text-align: center; border: 1.5px dashed var(--brand-blue); padding: 3px;
+            border-radius: 6px; background: #eff6ff;
+        }
+
+        /* Controls */
+        .controls { position: fixed; top: 15px; left: 15px; z-index: 1000; display: flex; gap: 12px; }
+        .btn { padding: 10px 20px; border-radius: 10px; border:2px solid #000; cursor:pointer; font-weight: 800; text-decoration:none; display:flex; align-items:center; gap:8px; font-size: 0.85rem; background: #fff; color: #000; transition: all 0.3s; }
+        .btn-print { background: #000; color: white; }
+        .btn:hover { transform: scale(1.05); }
+
+        @media print {
+            .controls { display: none; }
+            body { padding: 0; background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .print-page { width: 210mm; height: 297mm; padding: 5mm; margin: 0; gap: 6mm; }
+            .program-card { border: 2.5px solid #000; height: 140mm; border-radius: 0; width: 100%; }
+            @page { size: A4 portrait; margin: 0; }
+        }
+    </style>
+
+    <meta name="description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران.">
+    <meta property="og:title" content="الأبواب المفتوحة 2026 - GS Al Oumrane">
+    <meta property="og:description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران. اكتشف البرنامج، الورشات، ومسار الزيارة.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+</head>
+
+<body>
+
+    <div class="controls">
+        
+        <button onclick="window.print()" class="btn btn-print">🖨️ طباعة (13 ورشة)</button>
+    </div>
+
+    <div class="print-page">
+        <!-- FIRST PROGRAM -->
+        <div class="program-card">
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <h2>برنامج الأبواب المفتوحة 2026 (دليل الورشات)</h2>
+                </div>
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Logo" class="school-logo">
+                </div>
+                <div class="event-meta">
+                    <h1>G.S. AL OUMRANE</h1>
+                    <p>Année Scolaire 2025-26</p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="workshop-col">ورشات العمل</th>
+                        <th>10:00</th><th>10:30</th><th>11:00</th><th>11:30</th><th>12:00</th>
+                        <th rowspan="2" class="break-col">استراحة غداء</th>
+                        <th>14:00</th><th>14:30</th><th>15:00</th><th>15:30</th>
+                        <th rowspan="2" class="closing-col">16:30<br>17:00</th>
+                    </tr>
+                    <tr>
+                        <th>10:30</th><th>11:00</th><th>11:30</th><th>12:00</th><th>12:30</th>
+                        <th>14:30</th><th>15:00</th><th>15:30</th><th>16:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="workshop-col">العجين</td><td><span class="level-tag">MS</span></td><td><span class="level-tag">GS</span></td><td></td><td><span class="level-tag">CP</span></td><td></td><td class="break-col"></td><td></td><td></td><td></td><td></td><td rowspan="12" class="closing-col">اختتام الأبواب المفتوحة بقاعة المسرح</td></tr>
+                    <tr><td class="workshop-col">التجميل</td><td><span class="level-tag">GS</span></td><td><span class="level-tag">MS</span></td><td><span class="level-tag">CP</span></td><td></td><td></td><td class="break-col"></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td class="workshop-col">الكراكيز</td><td></td><td></td><td></td><td></td><td><span class="level-tag">MS/GS</span></td><td class="break-col"></td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">CE1</span></td><td><span class="level-tag">CPB</span></td><td></td></tr>
+                    <tr><td class="workshop-col">الألعاب 1</td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">CP</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td><td class="break-col"></td><td><span class="level-tag">CE1B</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">6</span></td></tr>
+                    <tr><td class="workshop-col">الألعاب 2</td><td><span class="level-tag">CE1B</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6</span></td><td></td><td></td><td class="break-col"></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">MS/GS</span></td></tr>
+                    <tr><td class="workshop-col">المكتبة (ف)</td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CM1A</span></td><td class="break-col"></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CPB</span></td></tr>
+                    <tr><td class="workshop-col">المكتبة (ع)</td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CE1B</span></td><td></td><td><span class="level-tag">CM1B</span></td><td class="break-col"></td><td><span class="level-tag">CPB</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CPA</span></td></tr>
+                    <tr><td class="workshop-col">البستنة</td><td><span class="level-tag">CPB</span></td><td><span class="level-tag">CM1B</span></td><td><span class="level-tag">GS/MS</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CE2B</span></td><td class="break-col"></td><td><span class="level-tag">6</span></td><td></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE1</span></td></tr>
+                    <tr><td class="workshop-col">المسرح</td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CE1</span></td><td></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">6</span></td><td class="break-col"></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE1</span></td><td></td></tr>
+                    <tr><td class="workshop-col">الإعلاميات</td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE2A</span></td><td class="break-col"></td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CE2B</span></td></tr>
+                    <tr><td class="workshop-col">ركوب الخيل</td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">6</span></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">CE1</span></td><td><span class="level-tag">CP</span></td><td class="break-col"></td><td></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CM1</span></td></tr>
+                    <tr><td class="workshop-col">التربية الغذائية</td><td><span class="level-tag">6</span></td><td></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE1</span></td><td class="break-col"></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">CP</span></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td></tr>
+                </tbody>
+            </table>
+            <div class="extra-activities-note">
+                <strong>ملاحظة هامة:</strong> تتخلل الأبواب المفتوحة أيضاً أنشطة موازية: الإذاعة المدرسية 📻 - ورشة الرسم 🎨 - معرض إنجازات التلاميذ ✨
+            </div>
+            <div class="footer-note">
+                <span>© مجموعة مدارس العمران - Excellence & Valeurs</span>
+                <span>GS AL OUMRANE POCKET-HUB 2026</span>
+            </div>
+        </div>
+
+        <!-- SECOND PROGRAM (IDENTICAL) -->
+        <div class="program-card">
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <h2>برنامج الأبواب المفتوحة 2026 (دليل الورشات)</h2>
+                </div>
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Logo" class="school-logo">
+                </div>
+                <div class="event-meta">
+                    <h1>G.S. AL OUMRANE</h1>
+                    <p>Année Scolaire 2025-26</p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="workshop-col">ورشات العمل</th>
+                        <th>10:00</th><th>10:30</th><th>11:00</th><th>11:30</th><th>12:00</th>
+                        <th rowspan="2" class="break-col">استراحة غداء</th>
+                        <th>14:00</th><th>14:30</th><th>15:00</th><th>15:30</th>
+                        <th rowspan="2" class="closing-col">16:30<br>17:00</th>
+                    </tr>
+                    <tr>
+                        <th>10:30</th><th>11:00</th><th>11:30</th><th>12:00</th><th>12:30</th>
+                        <th>14:30</th><th>15:00</th><th>15:30</th><th>16:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="workshop-col">العجين</td><td><span class="level-tag">MS</span></td><td><span class="level-tag">GS</span></td><td></td><td><span class="level-tag">CP</span></td><td></td><td class="break-col"></td><td></td><td></td><td></td><td></td><td rowspan="12" class="closing-col">اختتام الأبواب المفتوحة بقاعة المسرح</td></tr>
+                    <tr><td class="workshop-col">التجميل</td><td><span class="level-tag">GS</span></td><td><span class="level-tag">MS</span></td><td><span class="level-tag">CP</span></td><td></td><td></td><td class="break-col"></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td class="workshop-col">الكراكيز</td><td></td><td></td><td></td><td></td><td><span class="level-tag">MS/GS</span></td><td class="break-col"></td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">CE1</span></td><td><span class="level-tag">CPB</span></td><td></td></tr>
+                    <tr><td class="workshop-col">الألعاب 1</td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">CP</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td><td class="break-col"></td><td><span class="level-tag">CE1B</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">6</span></td></tr>
+                    <tr><td class="workshop-col">الألعاب 2</td><td><span class="level-tag">CE1B</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6</span></td><td></td><td></td><td class="break-col"></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">MS/GS</span></td></tr>
+                    <tr><td class="workshop-col">المكتبة (ف)</td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CM1A</span></td><td class="break-col"></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CPB</span></td></tr>
+                    <tr><td class="workshop-col">المكتبة (ع)</td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CE2A</span></td><td><span class="level-tag">CE1B</span></td><td></td><td><span class="level-tag">CM1B</span></td><td class="break-col"></td><td><span class="level-tag">CPB</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">CPA</span></td></tr>
+                    <tr><td class="workshop-col">البستنة</td><td><span class="level-tag">CPB</span></td><td><span class="level-tag">CM1B</span></td><td><span class="level-tag">GS/MS</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CE2B</span></td><td class="break-col"></td><td><span class="level-tag">6</span></td><td></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE1</span></td></tr>
+                    <tr><td class="workshop-col">المسرح</td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CE1</span></td><td></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">6</span></td><td class="break-col"></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE1</span></td><td></td></tr>
+                    <tr><td class="workshop-col">الإعلاميات</td><td><span class="level-tag">CPA</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE2B</span></td><td><span class="level-tag">6A</span></td><td><span class="level-tag">CE2A</span></td><td class="break-col"></td><td><span class="level-tag">CE1A</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">6B</span></td><td><span class="level-tag">CE2B</span></td></tr>
+                    <tr><td class="workshop-col">ركوب الخيل</td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">6</span></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">CE1</span></td><td><span class="level-tag">CP</span></td><td class="break-col"></td><td></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CM1</span></td></tr>
+                    <tr><td class="workshop-col">التربية الغذائية</td><td><span class="level-tag">6</span></td><td></td><td><span class="level-tag">CM2</span></td><td><span class="level-tag">CM1</span></td><td><span class="level-tag">CE1</span></td><td class="break-col"></td><td><span class="level-tag">CE2</span></td><td><span class="level-tag">CP</span></td><td><span class="level-tag">MS/GS</span></td><td><span class="level-tag">CM2</span></td></tr>
+                </tbody>
+            </table>
+            <div class="extra-activities-note">
+                <strong>ملاحظة هامة:</strong> تتخلل الأبواب المفتوحة أيضاً أنشطة موازية: الإذاعة المدرسية 📻 - ورشة الرسم 🎨 - معرض إنجازات التلاميذ ✨
+            </div>
+            <div class="footer-note">
+                <span>© مجموعة مدارس العمران - Excellence & Valeurs</span>
+                <span>GS AL OUMRANE POCKET-HUB 2026</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html" title="الرئيسية (Portal)">🏠</a>
+        <a href="open_doors_visitor_guide.html" title="دليل الزائر">🧭</a>
+        <a href="open_doors_journey.html" title="مسار الزيارة">🗺️</a>
+        <a href="open_doors_rotation.html" title="الدوران">🔄</a>
+        <a href="open_doors_guide_card.html" title="بطاقة المرافقة">📋</a>
+        <a href="open_doors_feedback.html" title="التقييم">⭐</a>
+    </nav>
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1); z-index: 9999; transition: all 0.4s ease;
+    }
+    .global-floating-nav:hover {
+        background: rgba(26, 54, 93, 0.95); box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+    }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; background: transparent; transition: all 0.3s ease;
+        display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .global-floating-nav a:hover {
+        transform: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+    }
+    @media print { .no-print { display: none !important; } }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+</body>
+
+</html>

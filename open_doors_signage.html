@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحات التشوير - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #ea580c;
+            --gold: #d4af37;
+            --bg: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #e2e8f0;
+            padding: 20px;
+        }
+
+        .signage-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sign-card {
+            width: 297mm;
+            height: 210mm; /* A4 Landscape */
+            background: white;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 15px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            page-break-after: always;
+        }
+
+        .sign-header {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .sign-content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .workshop-name {
+            font-size: 6rem;
+            font-weight: 950;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .workshop-sub {
+            font-size: 2.5rem;
+            font-family: 'Outfit', sans-serif;
+            color: var(--secondary);
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .location-tag {
+            margin-top: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .sign-arrow {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .sign-arrow svg {
+            width: 120px;
+            height: 120px;
+            fill: var(--secondary);
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            font-size: 20rem;
+            opacity: 0.05;
+            color: var(--primary);
+            z-index: 1;
+            transform: rotate(-15deg);
+        }
+
+        .logo-corner {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 80px;
+        }
+
+        @media print {
+            @page { size: A4 landscape; margin: 0; }
+            html, body { 
+                margin: 0; padding: 0; background: white; 
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print, .controls { display: none !important; }
+            .signage-container { max-width: 100%; margin: 0; padding: 0; }
+            .sign-card { 
+                width: 100%; height: 100vh;
+                margin: 0; box-shadow: none; border-width: 15px;
+                page-break-after: always;
+                page-break-inside: avoid;
+                overflow: hidden;
+                display: flex !important;
+            }
+            .sign-card:last-child { page-break-after: auto; }
+            .workshop-name { font-size: 3.5rem; }
+            .location-tag { font-size: 3rem; }
+            .sign-arrow svg { width: 100px; height: 100px; }
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls no-print">
+        <button class="btn" onclick="window.print()">🖨️ طباعة لوحات التشوير</button>
+        <a href="index.html" class="btn" style="text-decoration:none; margin-right:10px;">🏠 العودة للرئيسية</a>
+    </div>
+
+    <div class="signage-container">
+
+        <!-- SAHA AL MOUSSASA -->
+        <div class="sign-card">
+            <div class="sign-header">PORTES OUVERTES 2026</div>
+            <div class="sign-content">
+                <div class="location-tag" style="font-size: 3.5rem; margin-bottom: 40px; background: #9333ea;">📍 قطب التواصل والإبداع</div>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px; text-align: right; width: 100%;">
+                    <div class="workshop-name" style="font-size: 4rem;">• ورشة العجين</div>
+                    <div class="workshop-name" style="font-size: 4rem;">• ورشة الإذاعة</div>
+                    <div class="workshop-name" style="font-size: 4rem;">• المعرض الفني</div>
+                </div>
+            </div>
+            <div class="watermark">🏫</div>
+        </div>
+
+        <!-- SAHA AL MALAB (Now Nature & Arts) -->
+        <div class="sign-card">
+            <div class="sign-header">PORTES OUVERTES 2026</div>
+            <div class="sign-content">
+                <div class="location-tag" style="font-size: 3.5rem; margin-bottom: 30px; background: #0284c7;">📍 القطب البيئي والفني</div>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px; text-align: right; width: 100%;">
+                    <div class="workshop-name" style="font-size: 4rem;">• ورشة البستنة</div>
+                    <div class="workshop-name" style="font-size: 4rem;">• قاعة المسرح</div>
+                    <div class="workshop-name" style="font-size: 4rem;">• المسبح</div>
+                </div>
+                <div class="sign-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </div>
+            </div>
+            <div class="watermark">🌿</div>
+        </div>
+
+        <!-- LACAVE -->
+        <div class="sign-card">
+            <div class="sign-header">PORTES OUVERTES 2026</div>
+            <div class="sign-content">
+                <div class="location-tag" style="font-size: 3.5rem; margin-bottom: 40px; background: #059669;">📍 فضاء الإبداع والمهارات الحياتية</div>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px; text-align: right; width: 100%;">
+                    <div class="workshop-name" style="font-size: 4.5rem;">• التربية الغذائية</div>
+                    <div class="workshop-name" style="font-size: 4.5rem;">• ورشة الكراكيز</div>
+                </div>
+                <div class="sign-arrow">
+                    <svg viewBox="0 0 24 24" style="transform: rotate(90deg);"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </div>
+            </div>
+            <div class="watermark">🏛️</div>
+        </div>
+
+        <!-- 1ST FLOOR -->
+        <div class="sign-card">
+            <div class="sign-header">PORTES OUVERTES 2026</div>
+            <div class="sign-content">
+                <div class="location-tag" style="font-size: 3.5rem; margin-bottom: 40px; background: #0891b2;">📍 فضاء الدروس التفاعلية</div>
+                <div class="workshop-name" style="font-size: 5rem;">• قاعة الإعلاميات</div>
+                <div class="sign-arrow">
+                    <svg viewBox="0 0 24 24" style="transform: rotate(-90deg);"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </div>
+            </div>
+            <div class="watermark">💻</div>
+        </div>
+
+        <!-- SPORTS & CULTURE ZONE (Merged) -->
+        <div class="sign-card">
+            <div class="sign-header">PORTES OUVERTES 2026</div>
+            <div class="sign-content">
+                <div class="location-tag" style="font-size: 3.5rem; margin-bottom: 30px; background: var(--secondary);">📍 القطب الرياضي والثقافي</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: right; width: 100%;">
+                    <div class="workshop-name" style="font-size: 3.5rem;">• ورشة الألعاب</div>
+                    <div class="workshop-name" style="font-size: 3.5rem;">• ركوب الخيل</div>
+                    <div class="workshop-name" style="font-size: 3.5rem;">• ورشة الرسم</div>
+                    <div class="workshop-name" style="font-size: 3.5rem;">• المكتبة</div>
+                </div>
+                <div class="sign-arrow">
+                    <svg viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </div>
+            </div>
+            <div class="watermark">🎭</div>
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+</html>

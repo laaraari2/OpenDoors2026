@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إذن بالمغادرة الاستثنائية - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #9a3412;
+            --bg: #f8fafc;
+            --border: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            padding: 20px;
+        }
+
+        .page-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 5mm 10mm;
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+
+        .permit-card {
+            width: 100%;
+            height: 92mm; 
+            border: 2px solid var(--primary);
+            padding: 10px 15px;
+            position: relative;
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cutting line indicator */
+        .permit-card:not(:last-child)::after {
+            content: '✂----------------------------------------------------------------------------------------------------';
+            position: absolute;
+            bottom: -2.5mm;
+            left: 0;
+            width: 100%;
+            color: #94a3b8;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        .school-info h1 { font-size: 1rem; color: var(--primary); font-weight: 900; }
+        .school-info p { font-size: 0.7rem; font-weight: 700; color: var(--accent); }
+
+        .logo img { height: 35px; }
+
+        .doc-title {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .doc-title h2 {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 900;
+        }
+
+        .form-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        .field {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+        .field label { font-weight: 900; color: #334155; min-width: 85px; }
+        .field .value { 
+            flex: 1; 
+            border-bottom: 1px dotted #94a3b8; 
+            height: 20px;
+        }
+
+        .signatures {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .sig-box { width: 45%; }
+        .sig-box p { font-size: 0.8rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+        .sig-line { border-top: 1px solid #cbd5e1; width: 80%; margin: 0 auto; }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 4rem;
+            color: rgba(26, 54, 93, 0.03);
+            font-weight: 900;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            html, body { background: none; padding: 0; margin: 0; }
+            .page-container { margin: 0; box-shadow: none; border: none; padding: 5mm 10mm; }
+            .no-print-btn { display: none; }
+        }
+
+        .no-print-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <button class="no-print-btn" onclick="window.print()">🖨️ طباعة النماذج (A4)</button>
+
+    <div class="page-container">
+        
+        <!-- Permit 1 -->
+        <div class="permit-card">
+            <div class="watermark">AL OUMRANE</div>
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <p>مركز الاستقبال - الأبواب المفتوحة 2026</p>
+                </div>
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo">
+                </div>
+            </div>
+            <div class="doc-title">
+                <h2>إذن بالمغادرة الاستثنائية</h2>
+            </div>
+            <div class="form-content">
+                <div class="field" style="grid-column: span 2;">
+                    <label>اسم التلميذ(ة):</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>القسم:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>وقت المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>ولي الأمر:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>سبب المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+            </div>
+            <div class="signatures">
+                <div class="sig-box">
+                    <p>توقيع ولي الأمر</p>
+                    <div class="sig-line"></div>
+                </div>
+                <div class="sig-box">
+                    <p>خاتم مركز الاستقبال</p>
+                    <div class="sig-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permit 2 -->
+        <div class="permit-card">
+            <div class="watermark">AL OUMRANE</div>
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <p>مركز الاستقبال - الأبواب المفتوحة 2026</p>
+                </div>
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo">
+                </div>
+            </div>
+            <div class="doc-title">
+                <h2>إذن بالمغادرة الاستثنائية</h2>
+            </div>
+            <div class="form-content">
+                <div class="field" style="grid-column: span 2;">
+                    <label>اسم التلميذ(ة):</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>القسم:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>وقت المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>ولي الأمر:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>سبب المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+            </div>
+            <div class="signatures">
+                <div class="sig-box">
+                    <p>توقيع ولي الأمر</p>
+                    <div class="sig-line"></div>
+                </div>
+                <div class="sig-box">
+                    <p>خاتم مركز الاستقبال</p>
+                    <div class="sig-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permit 3 -->
+        <div class="permit-card">
+            <div class="watermark">AL OUMRANE</div>
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <p>مركز الاستقبال - الأبواب المفتوحة 2026</p>
+                </div>
+                <div class="logo">
+                    <img src="logo.jpg" alt="Logo">
+                </div>
+            </div>
+            <div class="doc-title">
+                <h2>إذن بالمغادرة الاستثنائية</h2>
+            </div>
+            <div class="form-content">
+                <div class="field" style="grid-column: span 2;">
+                    <label>اسم التلميذ(ة):</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>القسم:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field">
+                    <label>وقت المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>ولي الأمر:</label>
+                    <div class="value"></div>
+                </div>
+                <div class="field" style="grid-column: span 2;">
+                    <label>سبب المغادرة:</label>
+                    <div class="value"></div>
+                </div>
+            </div>
+            <div class="signatures">
+                <div class="sig-box">
+                    <p>توقيع ولي الأمر</p>
+                    <div class="sig-line"></div>
+                </div>
+                <div class="sig-box">
+                    <p>خاتم مركز الاستقبال</p>
+                    <div class="sig-line"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

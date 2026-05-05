@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة ورشة - Fiche de l'Atelier - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1e3a8a;
+            --brand-blue-light: #2563eb;
+            --brand-orange: #ea580c;
+            --brand-gold: #c2912e;
+            --brand-gold-light: #fcd34d;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border-light: #e2e8f0;
+            --accent-soft: #f0fdf4;
+            --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+        body {
+            font-family:'Outfit', 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(217,100%,76%,0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(28,100%,74%,0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .form-container {
+            max-width: 850px; 
+            margin: 0 auto;
+            background: var(--bg-card); 
+            padding: 50px 60px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 20px;
+            border-top: 15px solid transparent;
+            border-image: linear-gradient(to right, var(--brand-blue), var(--brand-blue-light), var(--brand-orange)) 1;
+            min-height: 1050px; /* Force A4 feel */
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.2);
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('logo.jpg') center/cover no-repeat;
+            opacity: 0.02;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        /* Branding Header */
+        .form-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 40px; 
+            padding-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-gold), transparent);
+            border-radius: 3px;
+        }
+
+        .school-info h2 { 
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900; 
+            color: var(--brand-blue); 
+            font-size: 1.4rem; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .school-info h2::before {
+            content: '';
+            display: inline-block;
+            width: 12px; height: 12px;
+            background: var(--brand-orange);
+            border-radius: 50%;
+        }
+
+        .school-info p { 
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+            font-weight: 700; 
+            margin-top: 5px;
+            margin-right: 22px;
+        }
+        
+        .fiche-tag {
+            background: rgba(37, 99, 235, 0.05);
+            padding: 10px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            text-align: left; 
+            color: var(--brand-blue);
+            font-size: 0.9rem; 
+            font-weight: 800; 
+            line-height: 1.3;
+        }
+        
+        .fiche-tag span {
+            color: var(--brand-orange);
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .form-title { 
+            text-align: center; 
+            margin: 30px 0 45px 0; 
+            position: relative;
+        }
+        
+        .form-title h1 { 
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 2.6rem; 
+            font-weight: 900; 
+            background: linear-gradient(90deg, var(--brand-blue), var(--brand-blue-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+        }
+        
+        .form-title p { 
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            color: var(--brand-orange); 
+            font-weight: 800; 
+            font-size: 1rem;
+            display: inline-block;
+            padding: 5px 20px;
+            background: rgba(234, 88, 12, 0.05);
+            border-radius: 30px;
+        }
+
+        /* Input Fields Row */
+        .info-grid {
+            display: grid; 
+            /* Changed to 2 columns to remove Salle */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .field { 
+            border: 2px solid var(--border-light); 
+            padding: 18px 20px; 
+            border-radius: 14px; 
+            display: flex; 
+            flex-direction: column;
+            background: #ffffff;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+        
+        .field::before {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 0%; height: 3px;
+            background: var(--brand-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .field:hover {
+            border-color: rgba(30, 58, 138, 0.2);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .field:hover::before {
+            width: 100%;
+        }
+
+        .field label { 
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 1.05rem; 
+            font-weight: 800; 
+            color: var(--brand-blue); 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .field label span.fr {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            color: var(--brand-orange);
+            opacity: 0.8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .field span.dots { 
+            display: block;
+            margin-top: 15px;
+            font-weight: 600; 
+            color: #cbd5e1; 
+            font-style: italic; 
+            letter-spacing: 2px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Sections */
+        .section { margin-bottom: 45px; position: relative; }
+        
+        .section h3 {
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 1.5rem; 
+            font-weight: 900;
+            color: var(--brand-blue); 
+            display: flex; 
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section h3::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background: var(--brand-gold);
+            border-radius: 3px;
+            margin-left: 15px;
+        }
+
+        .section h3 label { 
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            color: rgba(15, 23, 42, 0.4); 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            margin-right: auto;
+            background: rgba(15, 23, 42, 0.04);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* Goal Lines */
+        .lines { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+            padding: 20px;
+            background: rgba(248, 250, 252, 0.5);
+            border-radius: 14px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        
+        .line { 
+            border-bottom: 2px dotted #cbd5e1; 
+            height: 30px; 
+            position: relative;
+        }
+        
+        .line::before {
+            content: '•';
+            position: absolute;
+            right: -10px;
+            bottom: -8px;
+            color: var(--brand-orange);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* 30-Min Schedule Table */
+        .table-container {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-light);
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: white;
+        }
+        
+        th, td { 
+            padding: 18px 20px; 
+            text-align: right; 
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        th { 
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--brand-blue); 
+            font-weight: 900; 
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 1.1rem; 
+        }
+        
+        tr:last-child td { border-bottom: none; }
+        
+        tr:hover td { background: rgba(248, 250, 252, 0.8); }
+
+        .time-col { 
+            width: 160px; 
+            font-weight: 800; 
+            color: var(--brand-orange); 
+            text-align: center; 
+            font-family: 'Outfit', sans-serif;
+            background: rgba(234, 88, 12, 0.02);
+            border-left: 1px solid var(--border-light);
+            font-size: 1.1rem;
+        }
+        
+        td:not(.time-col) {
+            position: relative;
+            background-image: linear-gradient(to right, transparent 50%, rgba(203, 213, 225, 0.3) 50%);
+            background-size: 12px 2px;
+            background-repeat: repeat-x;
+            background-position: center bottom 20px;
+        }
+
+        /* Note Boxes */
+        .box { 
+            border: 2px dashed #cbd5e1; 
+            height: 120px; 
+            border-radius: 14px; 
+            background: #fafafa; 
+            transition: all 0.3s ease;
+        }
+        
+        .box:hover {
+            border-color: var(--brand-gold);
+            background: rgba(194, 145, 46, 0.02);
+        }
+
+        /* Controls */
+        .controls { position: fixed; top: 25px; left: 25px; display: flex; gap: 15px; z-index: 1000; }
+        
+        .btn { 
+            padding: 14px 28px; 
+            border-radius: 12px; 
+            border: none; 
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 800; 
+            font-size: 1rem;
+            cursor: pointer; 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .btn-home { 
+            background: var(--brand-blue); 
+            color: white; 
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
+        }
+        
+        .btn-print { 
+            background: linear-gradient(135deg, var(--brand-orange), #c2410c); 
+            color: white; 
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.2);
+        }
+
+        .footer-branding {
+            margin-top: 60px; 
+            border-top: 2px solid #f1f5f9; 
+            padding-top: 25px; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-branding span {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem; 
+            color: var(--text-muted); 
+            font-weight: 800; 
+        }
+        
+        .footer-branding .year {
+            font-family: 'Outfit', sans-serif;
+            background: var(--brand-blue);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+          @media print {
+            body { background: white; padding: 0; background-image: none; }
+            .form-container { 
+                box-shadow: none; border: none; padding: 40px; width: 100%; max-width: 100%; 
+                border-top: 15px solid var(--brand-blue); border: 1px solid #eee;
+                min-height: 290mm; page-break-after: always; margin-bottom: 0;
+            }
+            .controls, .global-floating-nav { display: none !important; }
+            @page { size: A4 portrait; margin: 0; }
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+
+<body dir="rtl">
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+    <div class="controls no-print">
+        <button onclick="window.print()" class="btn btn-print">🖨️ طباعة جميع الاستمارات (15 صفحة)</button>
+        <a href="index.html" class="btn btn-home">🏠 العودة</a>
+    </div>
+
+    <div id="forms-wrapper"></div>
+
+    <script>
+        const workshops = [
+            "", // Blank first copy
+            "ورشة التجميل (Esthétique)",
+            "ورشة العجين (Pâte à modeler)",
+            "الكراكيز (Marionnettes)",
+            "الألعاب التربوية 1 (Jeux 1)",
+            "الألعاب التربوية 2 (Jeux 2)",
+            "التربية الغذائية (Nutrition)",
+            "البستنة (Jardinage)",
+            "المسرح (Théâtre)",
+            "ركوب الخيل (Équitation)",
+            "المكتبة (Bibliothèque)",
+            "الإعلاميات (Informatique)",
+            "الرسم (Dessin)",
+            "المعرض الفني (Exposition)",
+            "الإذاعة المدرسية (Radio)"
+        ];
+
+        const wrapper = document.getElementById('forms-wrapper');
+        workshops.forEach((name) => {
+            const isTheatre = name.includes("المسرح");
+            const container = document.createElement('div');
+            container.className = 'form-container';
+            
+            // Theatre specific content
+            const theatreBody = `
+                <tr><td class="time-col">05 د</td><td><b>الإحماء المبهر:</b> حركات إحمائية جماعية متناغمة (صوت وجسد) تعطي انطباعاً احترافياً أمام الزوار.</td></tr>
+                <tr><td class="time-col">10 د</td><td><b>التعبير الجسدي (اللوحات الحية):</b> تدريب التلاميذ على تشكيل "لوحات صامتة" تعبر عن قيم (النجاح، التعاون) تتحرك وتتوقف بإشارة، وهو عرض مبهر للآباء.</td></tr>
+                <tr><td class="time-col">10 د</td><td><b>الأداء الختامي (البروفة):</b> التدريب على النشيد/الرقصة الختامية مع محاكاة وجود جمهور حقيقي لتعويدهم على الوقوف فوق الخشبة.</td></tr>
+                <tr><td class="time-col">05 د</td><td><b>تحية الجمهور (Curtain Call):</b> تدريب التلاميذ على طريقة الانحناء وتحية الحاضرين بطلة مسرحية واثقة قبل المغادرة.</td></tr>
+            `;
+
+            const defaultBody = `
+                <tr><td class="time-col">....</td><td style="height:70px;"></td></tr>
+                <tr><td class="time-col">....</td><td style="height:120px;"></td></tr>
+                <tr><td class="time-col">....</td><td style="height:70px;"></td></tr>
+            `;
+
+            container.innerHTML = `
+                <div class="form-header">
+                    <div class="school-info"><h2>GS AL OUMRANE</h2><p>الأبواب المفتوحة 2026 / Portes Ouvertes</p></div>
+                    <div class="fiche-tag"><span>Fiche de préparation</span>ATELIER CRÉATIF</div>
+                </div>
+                <div class="form-title"><h1>استمارة تخطيط الورشة</h1><p>Planning de l'Atelier ${isTheatre ? '- SPECIAL EDITION' : ''}</p></div>
+                <div class="info-grid">
+                    <div class="field">
+                        <label>اسم الورشة <span class="fr">Atelier</span></label>
+                        <span class="dots" style="color:var(--brand-blue); font-style:normal; font-weight:900;">${name || '........................................'}</span>
+                    </div>
+                    <div class="field"><label>المنشط (ة) <span class="fr">Animateur</span></label><span class="dots" style="color:var(--brand-blue); font-weight:bold;">${isTheatre ? 'زينب زروال - مصطفى لعرعري' : (name.includes("الرسم") ? 'نسيمة الهري' : '........................................')}</span></div>
+                </div>
+                <div class="section">
+                    <h3>أهداف النشاط <label>Objectifs</label></h3>
+                    <div class="lines">
+                        ${isTheatre ? 
+                            '<div class="line">تنمية مهارات التواصل والتعبير الجسدي لدى التلاميذ.</div><div class="line">الاستعداد الجيد للعرض الختامي (النشيد/الرقصة).</div><div class="line">تعزيز الثقة بالنفس والعمل الجماعي.</div>' : 
+                            '<div class="line"></div><div class="line"></div><div class="line"></div>'}
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>سير النشاط (30 دقيقة) <label>Déroulement</label></h3>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th class="time-col">الوقت</th><th>المحتوى والمراحل</th></tr></thead>
+                            <tbody>
+                                ${isTheatre ? theatreBody : defaultBody}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="section"><h3>الاحتياجات <label>Besoins</label></h3><div class="box">${isTheatre ? '<p style="padding:15px; color:#1e3a8a; font-weight:bold;">نظام صوتي (Sonorisation) - جهاز عرض (DATASHOW) - فضاء واسع للحركة - إكسسوارات مسرحية بسيطة.</p>' : ''}</div></div>
+                <div class="section"><h3>ملاحظات <label>Notes</label></h3><div class="lines"><div class="line"></div><div class="line"></div></div></div>
+                <div class="footer-branding"><span>مجموعة مدارس العمران</span><span class="year">2026 © GS AL OUMRANE</span></div>
+            `;
+            wrapper.appendChild(container);
+        });
+    </script>
+</body>
+</html>m: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+    }
+    @media print { .no-print { display: none !important; } }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+</body>
+</html>
+

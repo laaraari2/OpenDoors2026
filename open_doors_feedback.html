@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استمارة الرأي - Questionnaire de Feedback - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1e3a8a; --brand-orange: #ea580c; --brand-gold: #c2912e;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f1f5f9; padding: 20px; }
+        
+        .print-canvas {
+            width: 210mm; /* A4 Width */
+            margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr; gap: 20px; padding: 10px;
+        }
+
+        .feedback-card {
+            background: white; border: 2px dashed #ddd; border-radius: 15px;
+            padding: 25px; display: flex; flex-direction: column;
+            position: relative; overflow: hidden; height: 140mm; /* Approx 1/4 A4 */
+        }
+        .feedback-card::before {
+            content: ""; position: absolute; top:0; right:0; width:8px; height:100%;
+            background: var(--brand-blue);
+        }
+
+        .card-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px; }
+        .card-header h2 { font-size: 1.3rem; font-weight: 950; color: var(--brand-blue); margin-bottom: 5px; }
+        .card-header p { font-size: 0.7rem; color: var(--brand-orange); font-weight: 800; text-transform: uppercase; }
+        .logo-placeholder { font-weight: 900; color: var(--brand-gold); font-size: 0.8rem; }
+
+        .question { margin-bottom: 15px; }
+        .question label { display: block; font-weight: 800; font-size: 0.9rem; color: #475569; margin-bottom: 8px; }
+        
+        /* Star Rating Placeholder */
+        .stars { display: flex; gap: 5px; margin-bottom: 5px; font-size: 1.2rem; color: #e2e8f0; }
+        .stars span { border: 1px solid #e2e8f0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 5px; }
+
+        .input-line { border-bottom: 1px dotted #cbd5e1; height: 30px; margin-bottom: 10px; }
+        .input-box { border: 1px solid #f1f5f9; height: 60px; border-radius: 8px; background: #fafafa; }
+
+        .card-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 10px; }
+        .card-footer span { font-size: 0.7rem; color: #94a3b8; font-weight: 700; }
+
+        .controls { position: fixed; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 10px; }
+        .btn { padding: 12px 20px; border-radius: 10px; border:none; cursor:pointer; font-weight: 800; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+        .btn-home { background: var(--brand-blue); color: white; }
+        .btn-print { background: var(--brand-orange); color: white; }
+
+        @media print {
+            .controls { display: none; }
+            body { padding: 0; background: white; }
+            .print-canvas { width: 210mm; height: 297mm; margin: 0; gap: 2mm; padding: 5mm; }
+            .feedback-card { border: 1px dashed #bbb; box-shadow: none; height: 140mm; }
+            @page { size: A4 portrait; margin: 0; }
+        }
+    </style>
+
+    <meta name="description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران.">
+    <meta property="og:title" content="الأبواب المفتوحة 2026 - GS Al Oumrane">
+    <meta property="og:description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران. اكتشف البرنامج، الورشات، ومسار الزيارة.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls">
+        
+        <button onclick="window.print()" class="btn btn-print">🖨️ طباعة البطاقات</button>
+    </div>
+
+    <div class="print-canvas">
+        <!-- Loop 4 times for a full page -->
+        <div class="feedback-card">
+            <div class="card-header">
+                <div>
+                    <h2>رأيكم يهمنا</h2>
+                    <p>VOTRE AVIS COMPTE</p>
+                </div>
+                <div class="logo-placeholder">GS AL OUMRANE</div>
+            </div>
+
+            <div class="question">
+                <label>ما هو انطباعكم العام عن الزيارة؟</label>
+                <div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div>
+            </div>
+
+            <div class="question">
+                <label>ما هي الورشة التي نالت إعجابكم أكثر؟</label>
+                <div class="input-line"></div>
+            </div>
+
+            <div class="question">
+                <label>مقترحات لتطوير خدمات المؤسسة:</label>
+                <div class="input-box"></div>
+            </div>
+
+            <div class="question">
+                <label>رقم الهاتف (اختياري):</label>
+                <div class="input-line"></div>
+            </div>
+
+            <div class="card-footer">
+                <span>شكراً لزيارتكم • Merci de votre visite</span>
+                <span style="opacity:0.5;">Portes Ouvertes 2026</span>
+            </div>
+        </div>
+
+        <div class="feedback-card">
+            <div class="card-header">
+                <div>
+                    <h2>رأيكم يهمنا</h2>
+                    <p>VOTRE AVIS COMPTE</p>
+                </div>
+                <div class="logo-placeholder">GS AL OUMRANE</div>
+            </div>
+            <div class="question"><label>ما هو انطباعكم العام عن الزيارة؟</label><div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div></div>
+            <div class="question"><label>ما هي الورشة التي نالت إعجابكم أكثر؟</label><div class="input-line"></div></div>
+            <div class="question"><label>مقترحات لتطوير خدمات المؤسسة:</label><div class="input-box"></div></div>
+            <div class="question"><label>رقم الهاتف (اختياري):</label><div class="input-line"></div></div>
+            <div class="card-footer"><span>شكراً لزيارتكم • Merci de votre visite</span><span style="opacity:0.5;">Portes Ouvertes 2026</span></div>
+        </div>
+
+        <div class="feedback-card">
+            <div class="card-header">
+                <div>
+                    <h2>رأيكم يهمنا</h2>
+                    <p>VOTRE AVIS COMPTE</p>
+                </div>
+                <div class="logo-placeholder">GS AL OUMRANE</div>
+            </div>
+            <div class="question"><label>ما هو انطباعكم العام عن الزيارة؟</label><div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div></div>
+            <div class="question"><label>ما هي الورشة التي نالت إعجابكم أكثر؟</label><div class="input-line"></div></div>
+            <div class="question"><label>مقترحات لتطوير خدمات المؤسسة:</label><div class="input-box"></div></div>
+            <div class="question"><label>رقم الهاتف (اختياري):</label><div class="input-line"></div></div>
+            <div class="card-footer"><span>شكراً لزيارتكم • Merci de votre visite</span><span style="opacity:0.5;">Portes Ouvertes 2026</span></div>
+        </div>
+
+        <div class="feedback-card">
+            <div class="card-header">
+                <div>
+                    <h2>رأيكم يهمنا</h2>
+                    <p>VOTRE AVIS COMPTE</p>
+                </div>
+                <div class="logo-placeholder">GS AL OUMRANE</div>
+            </div>
+            <div class="question"><label>ما هو انطباعكم العام عن الزيارة؟</label><div class="stars"><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span></div></div>
+            <div class="question"><label>ما هي الورشة التي نالت إعجابكم أكثر؟</label><div class="input-line"></div></div>
+            <div class="question"><label>مقترحات لتطوير خدمات المؤسسة:</label><div class="input-box"></div></div>
+            <div class="question"><label>رقم الهاتف (اختياري):</label><div class="input-line"></div></div>
+            <div class="card-footer"><span>شكراً لزيارتكم • Merci de votre visite</span><span style="opacity:0.5;">Portes Ouvertes 2026</span></div>
+        </div>
+    </div>
+
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html" title="الرئيسية (Portal)">🏠</a>
+        <a href="open_doors_visitor_guide.html" title="دليل الزائر">🧭</a>
+        <a href="open_doors_journey.html" title="مسار الزيارة">🗺️</a>
+        <a href="open_doors_rotation.html" title="الدوران">🔄</a>
+        <a href="open_doors_feedback.html" title="التقييم">⭐</a>
+    </nav>
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1); z-index: 9999; transition: all 0.4s ease;
+    }
+    .global-floating-nav:hover {
+        background: rgba(26, 54, 93, 0.95); box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+    }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; background: transparent; transition: all 0.3s ease;
+        display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .global-floating-nav a:hover {
+        transform: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+    }
+    @media print { .no-print { display: none !important; } }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+</body>
+
+</html>

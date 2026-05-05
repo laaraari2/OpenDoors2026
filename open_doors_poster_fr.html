@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Portes Ouvertes - GS Al Omrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --brand-blue: #1e3a8a;
+            --brand-orange: #ea580c;
+            --brand-gold: #c2912e;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #cbd5e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        #poster {
+            width: 794px;
+            /* A4 Ratio */
+            height: 1123px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Header - Elegant Slanted Bar */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: var(--brand-blue);
+            clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Circular Logo Container - Professional Integration */
+        .logo-ring {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid var(--white);
+            overflow: hidden; /* Prevent square corners from sticking out */
+        }
+
+        .logo-ring img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Refined Title Positioning */
+        .header-content {
+            position: relative;
+            z-index: 25;
+            padding: 15px 350px 0 170px;
+            text-align: left;
+            color: white;
+        }
+
+        .main-title {
+            font-size: 4.5rem;
+            font-weight: 950;
+            line-height: 0.85;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: white;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .main-title span {
+            display: block;
+            color: var(--brand-orange);
+            font-size: 5.2rem;
+            -webkit-text-stroke: 1.5px var(--brand-blue);
+            background: white;
+            padding: 2px 15px;
+            margin-top: 5px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Added Slogan - Elegant Subtle Style */
+        .slogan {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: transparent;
+            background: linear-gradient(135deg, var(--brand-blue), var(--brand-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-align: left;
+            margin-top: 10px;
+            font-style: italic;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            border-left: 4px solid var(--brand-gold);
+            padding-left: 12px;
+        }
+
+        /* Joyful Student Image - Positioned Right (Original Orientation) */
+        .student-joy {
+            position: absolute;
+            bottom: 180px;
+            right: -30px;
+            left: auto;
+            width: 480px; 
+            height: 600px;
+            z-index: 15;
+            background-image: url('student.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            mix-blend-mode: normal;
+            transform: none;
+            filter: saturate(1.1) contrast(1.05);
+            pointer-events: none;
+        }
+
+        /* Content Area - Left Aligned Layout */
+        .main-body {
+            margin-top: 120px;
+            padding: 10px 350px 0 60px;
+            position: relative;
+            z-index: 20;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .date-info {
+            display: flex;
+            justify-content: flex-start; /* LEFT ALIGNED */
+            align-items: flex-start;     /* LEFT ALIGNED */
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .date-pill {
+            background: var(--brand-blue);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 2.2rem;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
+        }
+
+        .school-name {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            white-space: nowrap;
+            margin-bottom: 5px;
+            position: relative;
+            padding-bottom: 6px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--brand-orange), var(--brand-gold), transparent);
+            border-radius: 2px;
+        }
+
+        .school-name .icon {
+            color: var(--brand-orange);
+            margin-right: 6px;
+        }
+
+        /* School Photo - Elegant Watermark */
+        .school-watermark {
+            position: absolute;
+            bottom: 250px;
+            left: 0;
+            width: 100%;
+            height: 450px;
+            background-image: url('ecole.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 1;
+            mask-image: linear-gradient(to top, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(to top, transparent, black 20%, black 80%, transparent);
+        }
+
+        /* Activity Signs - Mirrored Stack */
+        /* Activity Signs - Left Aligned Stack */
+        .activity-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start; /* LEFT ALIGNED */
+        }
+
+        .activity-sign {
+            background: var(--brand-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.6rem;
+            width: 380px; 
+            text-align: center;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.1); /* Slanted right */
+            position: relative;
+        }
+
+        .activity-sign.highlight {
+            background: var(--brand-orange);
+            font-size: 1.1rem;
+            padding: 10px;
+            width: 280px;
+        }
+
+        /* Footer Section */
+        .red-ribbon {
+            background: var(--brand-orange);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 950;
+            letter-spacing: 12px;
+            transform: skewY(-2deg);
+            margin-top: auto;
+            z-index: 10;
+            /* Lower than student-joy */
+            position: relative;
+        }
+
+        .footer {
+            background: var(--brand-blue);
+            color: white;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .contact-pill {
+            background: white;
+            color: var(--brand-blue);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.4rem;
+        }
+
+        /* QR Code - Location - Right Aligned */
+        .qr-card {
+            position: absolute;
+            bottom: 250px;
+            right: 30px;
+            background: white;
+            padding: 10px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .qr-label {
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: var(--brand-blue);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .qr-sublabel {
+            font-size: 0.45rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            cursor: pointer;
+            color: white;
+            background: var(--brand-blue);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Home Button */
+        .home-btn {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--brand-blue); color: white;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000;
+            transition: 0.3s;
+        }
+        .home-btn:hover { background: var(--brand-orange); transform: scale(1.1); }
+        @media print { .home-btn { display: none !important; } }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                width: 210mm;
+                height: 297mm;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: unset !important;
+                max-height: 297mm !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                display: block !important;
+                justify-content: unset !important;
+                align-items: unset !important;
+            }
+
+            .controls {
+                display: none !important;
+            }
+
+            #poster {
+                box-shadow: none !important;
+                border: none !important;
+                width: 794px !important;
+                height: 1123px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+                transform-origin: top left;
+                transform: scale(0.985);
+                page-break-after: avoid;
+                page-break-inside: avoid;
+                break-after: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+
+    <meta name="description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران.">
+    <meta property="og:title" content="الأبواب المفتوحة 2026 - GS Al Oumrane">
+    <meta property="og:description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران. اكتشف البرنامج، الورشات، ومسار الزيارة.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls">
+        
+        <button class="btn" onclick="window.print()">🖨️ IMPRIMER DOCUMENT</button>
+    </div>
+
+    <div id="poster">
+        <div class="header-bg"></div>
+
+        <div class="logo-ring">
+            <img src="logo.jpg" alt="GS Al Oumrane Logo">
+        </div>
+
+        <div class="header-content">
+            <div class="school-name">GROUPE SCOLAIRE AL OUMRANE</div>
+            <h1 class="main-title">PORTES<span>OUVERTES</span></h1>
+            <div class="slogan">L'EXCELLENCE POUR TOUS !</div>
+        </div>
+
+        <div class="student-joy"></div>
+
+        <div class="main-body">
+            <div class="date-info">
+                <div class="date-pill">16 MAI 2026</div>
+            </div>
+
+            <div class="activity-stack">
+                <div class="activity-sign">Rencontres écoles</div>
+                <div class="activity-sign highlight">Crèche | Maternelle | Primaire | Lycée</div>
+                <div class="activity-sign">Conférences</div>
+                <div class="activity-sign">Ateliers & Activités</div>
+            </div>
+        </div>
+
+        <div class="school-watermark"></div>
+
+        <div class="qr-card">
+            <div class="qr-placeholder" style="background: white; display: flex; align-items: center; justify-content: center;">
+                <canvas id="qrcode" width="80" height="80"></canvas>
+            </div>
+            <p class="qr-label">📍 NOTRE POSITION</p>
+            <p class="qr-sublabel">Google Maps</p>
+        </div>
+
+        <div class="red-ribbon">
+            BIENVENUE À VOUS
+        </div>
+
+        <div class="footer">
+            <div style="font-size: 0.9rem; font-weight: 600;">
+                <p>📸 @gsalomrane</p>
+                <p>🌐 www.gs-alomrane.ma</p>
+            </div>
+            <div class="contact-pill">📞 0522972524</div>
+        </div>
+    </div>
+
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html" title="الرئيسية (Portal)">🏠</a>
+        <a href="open_doors_visitor_guide.html" title="دليل الزائر">🧭</a>
+        <a href="open_doors_journey.html" title="مسار الزيارة">🗺️</a>
+        <a href="open_doors_rotation.html" title="الدوران">🔄</a>
+        <a href="open_doors_feedback.html" title="التقييم">⭐</a>
+    </nav>
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1); z-index: 9999; transition: all 0.4s ease;
+    }
+    .global-floating-nav:hover {
+        background: rgba(26, 54, 93, 0.95); box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+    }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; background: transparent; transition: all 0.3s ease;
+        display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .global-floating-nav a:hover {
+        transform: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+    }
+    @media print { .no-print { display: none !important; } }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            var qr = qrcode(0, 'M');
+            qr.addData('https://www.google.com/maps/search/Groupe+Scolaire+Al+Oumrane+Sidi+Maarouf+Casablanca');
+            qr.make();
+            var canvas = document.getElementById('qrcode');
+            var ctx = canvas.getContext('2d');
+            var cells = qr.getModuleCount();
+            var size = 80;
+            var cellSize = size / cells;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, size, size);
+            ctx.fillStyle = '#1e3a8a';
+            for (var r = 0; r < cells; r++) {
+                for (var c = 0; c < cells; c++) {
+                    if (qr.isDark(r, c)) {
+                        ctx.fillRect(c * cellSize, r * cellSize, cellSize + 0.5, cellSize + 0.5);
+                    }
+                }
+            }
+        } catch(e) {
+            // Fallback: show a simple icon if QR library fails
+            var canvas = document.getElementById('qrcode');
+            if (canvas) {
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#1e3a8a';
+                ctx.font = '40px serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('📍', 40, 50);
+            }
+        }
+    });
+    </script>
+</body>
+
+
+</html>

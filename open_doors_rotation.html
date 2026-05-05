@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>برنامج الأبواب المفتوحة 2026 - G.S. AL OUMRANE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d;
+            --brand-gold: #9a3412;
+            --border-color: #000000;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f1f5f9;
+            font-family: 'Cairo', sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page-container {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-section {
+            height: 135mm;
+            width: 100%;
+            padding: 5mm;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px dashed #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            border-bottom: 3px solid var(--brand-blue);
+            padding-bottom: 5px;
+        }
+
+        .school-info h1 { font-size: 1.4rem; color: var(--brand-blue); font-weight: 900; line-height: 1.1; }
+        .school-info h2 { font-size: 0.85rem; color: var(--brand-gold); font-weight: 700; }
+
+        .logo-container img { height: 60px; width: auto; }
+
+        .event-meta { text-align: left; }
+        .event-meta h1 { font-family: 'Outfit', sans-serif; font-size: 1.4rem; color: var(--brand-blue); font-weight: 900; }
+        .event-meta p { font-size: 0.85rem; color: #475569; font-weight: 700; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid var(--border-color);
+        }
+
+        th, td {
+            border: 1.5px solid var(--border-color);
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.65rem;
+            height: 22px;
+            padding: 1px;
+            color: #000;
+        }
+
+        th {
+            background: #f8fafc !important;
+            font-weight: 950;
+            font-size: 0.6rem;
+            height: 25px;
+            padding: 2px;
+        }
+
+        .workshop-col {
+            width: 130px;
+            text-align: right;
+            padding-right: 12px;
+            font-weight: 950;
+            background: #fff !important;
+            font-size: 0.75rem;
+        }
+
+        .level-tag {
+            display: inline;
+            font-weight: 900;
+            color: #000;
+            font-size: 0.65rem;
+            margin: 0;
+        }
+
+        .level-tag + .level-tag::before {
+            content: " - ";
+            font-weight: normal;
+            color: #666;
+            margin: 0 2px;
+        }
+
+        .break-col {
+            width: 30px;
+            background: #f1f5f9 !important;
+            writing-mode: vertical-rl;
+            font-weight: 950;
+            font-size: 0.6rem;
+            text-align: center;
+            line-height: 1;
+            padding: 5px 0;
+        }
+
+        .closing-col {
+            width: 40px;
+            background: #fffbeb !important;
+            writing-mode: vertical-rl;
+            font-weight: 950;
+            font-size: 0.85rem;
+            color: var(--brand-gold);
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #1e293b;
+            padding-top: 8px;
+            border-top: 2px solid var(--brand-blue);
+            font-weight: 800;
+        }
+
+        .extra-note {
+            background: #eff6ff !important;
+            border: 1px dashed var(--brand-blue);
+            padding: 5px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 5px;
+            font-weight: 900;
+            color: var(--brand-blue);
+            border-radius: 4px;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page-container { margin: 0; box-shadow: none; width: 100%; }
+            .controls { display: none; }
+            .program-section { border-bottom: 1px dashed #000; }
+        }
+
+        .controls {
+            position: fixed; top: 20px; left: 20px;
+            background: #000; padding: 20px; border-radius: 12px;
+            color: white; z-index: 100; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 320px;
+            border: 3px solid #ef4444;
+        }
+        .btn {
+            background: #10b981; color: white; border: none; padding: 12px 24px;
+            border-radius: 8px; cursor: pointer; font-weight: 900; font-size: 1.1rem;
+            width: 100%; margin-bottom: 10px;
+        }
+
+
+        /* Floating Back Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--brand-blue);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: var(--brand-gold);
+        }
+        @media print {
+            .back-home { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls">
+        <button class="btn" onclick="window.print()">🖨️ طباعة النسخة النهائية (A4)</button>
+    </div>
+
+    <div class="page-container">
+        <!-- TOP PROGRAM -->
+        <div class="program-section">
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <h2>برنامج الأبواب المفتوحة 2026 (دليل الورشات)</h2>
+                </div>
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Logo">
+                </div>
+                <div class="event-meta">
+                    <h1>G.S. AL OUMRANE</h1>
+                    <p>Année Scolaire 2025-2026</p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="workshop-col">ورشات العمل</th>
+                        <th>10:00-10:30</th><th>10:35-11:05</th><th>11:10-11:40</th><th>11:45-12:15</th>
+                        <th class="break-col">استراحة</th>
+                        <th>14:00-14:30</th><th>14:35-15:05</th><th>15:10-15:40</th><th>15:45-16:15</th>
+                        <th class="closing-col">16:15-17:00 الختام</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody1"></tbody>
+            </table>
+            <div class="extra-note">
+                ✨ أنشطة موازية: الإذاعة المدرسية 📻 - ورشة الرسم 🎨 - معرض الإنجازات ✨
+            </div>
+            <div class="footer">
+                <span>مجموعة مدارس العمران - Excellence & Valeurs</span>
+                <span>دليل الورشات لجميع المستويات</span>
+            </div>
+        </div>
+
+        <!-- BOTTOM PROGRAM -->
+        <div class="program-section">
+            <div class="header">
+                <div class="school-info">
+                    <h1>مجموعة مدارس العمران</h1>
+                    <h2>برنامج الأبواب المفتوحة 2026 (دليل الورشات)</h2>
+                </div>
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="Logo">
+                </div>
+                <div class="event-meta">
+                    <h1>G.S. AL OUMRANE</h1>
+                    <p>Année Scolaire 2025-2026</p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="workshop-col">ورشات العمل</th>
+                        <th>10:00-10:30</th><th>10:35-11:05</th><th>11:10-11:40</th><th>11:45-12:15</th>
+                        <th class="break-col">استراحة</th>
+                        <th>14:00-14:30</th><th>14:35-15:05</th><th>15:10-15:40</th><th>15:45-16:15</th>
+                        <th class="closing-col">16:15-17:00 الختام</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody2"></tbody>
+            </table>
+            <div class="extra-note">
+                ✨ أنشطة موازية: الإذاعة المدرسية 📻 - ورشة الرسم 🎨 - معرض الإنجازات ✨
+            </div>
+            <div class="footer">
+                <span>مجموعة مدارس العمران - Excellence & Valeurs</span>
+                <span>دليل الورشات لجميع المستويات</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const schedule = {
+            "6A": ["Horse", "Food", "LibFr", "LibAr", "Theatre", "Games1", "LibFr", "Games2"],
+            "6B": ["Horse", "Food", "LibFr", "LibAr", "Theatre", "Games1", "LibAr", "Games2"],
+            "CM1A": ["Theatre", "Horse", "Games1", "IT", "LibFr", "Gard", "Food", "Games1"],
+            "CM1B": ["Theatre", "Horse", "Games1", "Gard", "LibFr", "IT", "Food", "Games1"],
+            "CM2": ["Food", "Theatre", "LibAr", "LibFr", "IT", "Games2", "Horse", "LibAr"],
+            "CE2A": ["IT", "Games2", "Horse", "Food", "Games2", "LibFr", "Gard", "Theatre"],
+            "CE2B": ["Gard", "Games1", "Horse", "Food", "Games1", "LibAr", "IT", "Theatre"],
+            "CE1A": ["Games1", "LibFr", "IT", "Theatre", "Horse", "Food", "Games2", "Gard"],
+            "CE1B": ["Games2", "LibAr", "Gard", "Theatre", "Horse", "Food", "Games1", "IT"],
+            "CPA": ["LibFr", "Horse", "Dough", "Games1", "Gard", "Puppets", "Theatre", "Food"],
+            "CPB": ["LibAr", "Gard", "Games2", "Beauty", "Puppets", "Horse", "Theatre", "Food"],
+            "MS": ["Dough", "Beauty", "Theatre", "Games2", "Food", "Horse", "Puppets", "Games1"],
+            "GS": ["Beauty", "Dough", "Theatre", "Games2", "Food", "Horse", "Puppets", "Games2"],
+        };
+
+        const wm = {"Dough":"العجين","Beauty":"التجميل","Puppets":"الكراكيز","Games1":"الألعاب 1","Games2":"الألعاب 2","LibFr":"المكتبة (ف)","LibAr":"المكتبة (ع)","Gard":"البستنة","IT":"الإعلاميات","Theatre":"المسرح","Horse":"ركوب الخيل","Food":"ت. الغذائية"};
+        const wo = ["Dough","Beauty","Puppets","Games1","Games2","LibFr","LibAr","IT","Gard","Theatre","Horse","Food"];
+
+        function simplify(m) {
+            let res = [...m];
+            for (let [a,b,s] of [["CPA","CPB","CP"],["CE1A","CE1B","CE1"],["CE2A","CE2B","CE2"],["CM1A","CM1B","CM1"],["6A","6B","6"]]) {
+                if (res.includes(a) && res.includes(b)) {
+                    res = res.filter(x => x !== a && x !== b);
+                    res.push(s);
+                }
+            }
+            return res.sort();
+        }
+
+        function buildTable() {
+            let html = "";
+            wo.forEach((wk, index) => {
+                let cells = [];
+                for (let s = 0; s < 8; s++) {
+                    let m = Object.keys(schedule).filter(g => schedule[g][s] === wk);
+                    let tags = simplify(m).map(l => `<span class="level-tag">${l}</span>`).join("");
+                    cells.push(`<td>${tags}</td>`);
+                }
+                if (index === 0) {
+                    cells.splice(4, 0, '<td rowspan="12" class="break-col">اســــــــتراحة</td>');
+                }
+                let r = `<tr><td class="workshop-col">${wm[wk]}</td>${cells.join("")}`;
+                if (wk === "Dough") r += `<td rowspan="12" class="closing-col">16:15 - 17:00 الختام بالمسرح</td>`;
+                html += r + "</tr>";
+            });
+            document.getElementById('tbody1').innerHTML = html;
+            document.getElementById('tbody2').innerHTML = html;
+        }
+
+        buildTable();
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مذكرة إدارية تنظيمية - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            padding: 40px;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        .memo-container {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 20mm;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .memo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px double #1a365d;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .school-info h1 { font-size: 1.3rem; color: #1a365d; font-weight: 900; margin: 0; }
+        .school-info p { font-size: 0.9rem; margin: 2px 0; }
+        
+        .memo-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .memo-title h2 {
+            display: inline-block;
+            border-bottom: 2px solid #9a3412;
+            padding-bottom: 5px;
+            color: #9a3412;
+            font-size: 1.3rem; /* Slightly reduced to prevent cutting */
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+        .section-title {
+            background-color: #f8fafc;
+            border-right: 5px solid #1a365d;
+            padding: 8px 15px;
+            font-weight: 900;
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .content-block {
+            padding-right: 20px;
+            font-size: 1rem;
+        }
+        .content-block ul {
+            list-style-type: square;
+            padding-right: 25px;
+        }
+        .content-block li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #9a3412;
+            text-decoration: underline;
+        }
+
+        .signature-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+        .signature-box {
+            text-align: center;
+            font-weight: 700;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .memo-container { box-shadow: none; margin: 0; border: none; }
+            .no-print { display: none; }
+        }
+
+        .no-print-btn {
+            position: fixed; top: 20px; left: 20px;
+            background: #1a365d; color: white; border: none;
+            padding: 10px 25px; border-radius: 5px; cursor: pointer;
+            font-family: 'Cairo', sans-serif; font-weight: 700;
+        }
+
+        /* Floating Back Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #9a3412;
+        }
+        @media print {
+            .back-home { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <button class="no-print-btn" onclick="window.print()">🖨️ طباعة المذكرة</button>
+
+    <div class="memo-container">
+        <div class="memo-header">
+            <div class="school-info">
+                <h1>مجموعة مدارس العمران</h1>
+                <p>إدارة الشؤون التربوية</p>
+                <p>السنة الدراسية: 2025 - 2026</p>
+            </div>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo" style="height: 80px;">
+            </div>
+        </div>
+
+        <div class="memo-title">
+            <h2>مذكرة إدارية تنظيمية: فعاليات الأبواب المفتوحة</h2>
+        </div>
+
+        <!-- Section 1: Rationale -->
+        <div class="section">
+            <div class="section-title">أولاً: تقرير تبريري حول الهيكلة الزمنية (موجه للإدارة العامة)</div>
+            <div class="content-block">
+                تم اعتماد نظام <span class="highlight">8 حصص دورية</span> (بدلاً من 9) لضمان تحقيق أقصى درجات الاستفادة التربوية وتجنب الإرهاق الذهني للمشاركين. كما تم إقرار <span class="highlight">فواصل زمنية مدتها 5 دقائق</span> بين الدورات، تخصص حصرياً لتسهيل عملية انتقال الأفواج، وضمان إعادة تهيئة الورشات من قبل الأساتذة، مما يضفي طابعاً من الانسيابية والاحترافية على الحدث.
+            </div>
+        </div>
+
+        <!-- Section 2: Arrival and Handover -->
+        <div class="section">
+            <div class="section-title">ثانياً: إجراءات الاستقبال والتنظيم الأولي (09:00 - 09:45)</div>
+            <div class="content-block">
+                <ul>
+                    <li>يلتحق جميع التلاميذ بأقسامهم في تمام الساعة <span class="highlight">09:00 صباحاً</span>.</li>
+                    <li>تتسلم "المرافقات" بطاقات التوجيه (Guide Cards) من الإدارة، ويتوجهن مباشرة للأقسام المعنية.</li>
+                    <li>عند دخول المرافقة للقسم، <span class="highlight">تنتقل الأستاذة المشرفة</span> على الورشة فوراً لمقر ورشتها لتجهيز اللوازم.</li>
+                    <li>تتولى المرافقة ضبط الحضور وتسجيل أسماء التلاميذ الذين <span class="highlight">يمنع أولياء أمورهم التصوير</span>، مع ضرورة تنبيه المصور بشكل لبق <span class="highlight">لحظة استعداده لالتقاط الصور</span> (وليس فقط عند وصوله)، ليتسنى له اختيار زوايا تستثني المعنيين دون إحراجهم أو إشعارهم بالاستبعاد.</li>
+                    <li>في تمام الساعة <span class="highlight">09:45</span>، ترافق المرافقة تلاميذها لساحة التجمع لبدء التنشيط الجماعي.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3: Rotation Rules -->
+        <div class="section">
+            <div class="section-title">ثالثاً: ضوابط سير الورشات والتنقل</div>
+            <div class="content-block">
+                <ul>
+                    <li>ينطلق التناوب الفعلي عند سماع الجرس في تمام الساعة <span class="highlight">10:00 صباحاً</span>.</li>
+                    <li>يُسجل التلاميذ المتأخرون في سجل خاص لدى المرافقة.</li>
+                    <li><span class="highlight">يُمنع خروج أي تلميذ</span> قبل الوقت المحدد إلا بإذن كتابي رسمي من الإدارة، مع تدوين المرافقة لملاحظة المغادرة.</li>
+                    <li>عند نهاية الحصة الصباحية، تُسلم المرافقة التلاميذ للأستاذة الأصلية مع إبلاغها بالعدد الدقيق للحاضرين.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 4: Afternoon Session -->
+        <div class="section">
+            <div class="section-title">رابعاً: الفترة المسائية والحفل الختامي</div>
+            <div class="content-block">
+                <ul>
+                    <li>تلتحق المرافقة بالقسم عند بداية الفترة الزوالية لاستلام التلاميذ وضبط العدد (خاصة العائدين من غداء خارجي مع أوليائهم).</li>
+                    <li>في حال تغيب أي تلميذ كان حاضراً صباحاً، يجب <span class="highlight">إخطار الإدارة أو الأستاذة فوراً</span>.</li>
+                    <li>عند انتهاء آخر ورشة، ترافق المرافقة التلاميذ لأستاذتهم الأصلية، والتي تتولى بدورها مسؤولية مرافقتهم لقاعة المسرح.</li>
+                    <li>تتحمل الأستاذة <span class="highlight">المسؤولية الكاملة</span> عن تلامذتها داخل قاعة المسرح حتى انتهاء الحفل.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 5: General Professional Conduct -->
+        <div class="section">
+            <div class="section-title">خامساً: الهندام والتمثيل المؤسساتي</div>
+            <div class="content-block">
+                <ul>
+                    <li>يلتزم كافة أعضاء الطاقم (الإداري والتربوي والمرافقات) بارتداء <span class="highlight">الشارة التعريفية (Badge) والقبعات الموحدة</span> طوال فترة الحدث، لضمان مظهر مؤسساتي احترافي وتسهيل عملية التواصل مع الزوار.</li>
+                    <li>يعتبر مكتب الاستقبال (الكاتبة) هو <span class="highlight">نقطة الارتكاز الإدارية</span> الوحيدة للتواصل في حالات الطوارئ أو الاستفسارات اللوجستية.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 6: Reception Center -->
+        <div class="section">
+            <div class="section-title">سادساً: تدبير مركز الاستقبال والتوجه</div>
+            <div class="content-block">
+                يعتبر مركز الاستقبال (المتواجد بالمدخل الرئيسي) هو الواجهة التنظيمية الأولى للمؤسسة. وتتلخص مهامه في:
+                <ul>
+                    <li>استقبال الزوار وتوزيع الوثائق الإرشادية (الخرائط والبرنامج).</li>
+                    <li>تسليم <span class="highlight">أذونات المغادرة الاستثنائية</span> للتلاميذ المعتمدة من الإدارة.</li>
+                    <li>تنسيق دخول وخروج أولياء الأمور مع خلية الأمن.</li>
+                    <li>يمكن الاطلاع على التفاصيل الكاملة والمهام اللوجستيكية للمركز في <a href="open_doors_reception_auth.html" style="color: #1a365d; font-weight: 700;">"وثيقة الإذن الرسمي لمركز الاستقبال"</a>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="content-block" style="text-align: center; margin-top: 30px; font-weight: 700;">
+                إن نجاح هذا الحدث رهين بتظافر جهود الجميع بروح الفريق الواحد.
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                توقيع الإدارة التربوية<br><br>
+                ..........................
+            </div>
+            <div class="signature-box">
+                مصادقة السيد المدير العام<br><br>
+                ..........................
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

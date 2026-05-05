@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>شارة المسؤولية - مركز الاستقبال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #ea580c;
+            --white: #ffffff;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+        body {
+            font-family:'Outfit', sans-serif;
+            background:#f1f5f9;
+            display:flex; flex-direction:column; align-items:center; padding: 40px 0;
+        }
+
+        .a4-sheet {
+            width: 210mm; height: 297mm;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding: 5mm 10mm 15mm;
+            gap: 5mm;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Cut lines */
+        .a4-sheet::before { content:''; position:absolute; top:50%; left:5mm; right:5mm; border-top:1px dashed #cbd5e1; z-index:10; }
+        .a4-sheet::after { content:''; position:absolute; left:50%; top:5mm; bottom:5mm; border-left:1px dashed #cbd5e1; z-index:10; }
+
+        .badge {
+            width: 92mm; height: 130mm;
+            margin: auto;
+            padding: 0;
+            display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .badge-inner {
+            flex: 1;
+            border: 4px solid var(--primary);
+            border-radius: 15px;
+            display: flex; flex-direction: column;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .badge-header {
+            background: var(--primary);
+            padding: 20px 15px 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            width: 70px; height: 70px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            padding: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            overflow: hidden; /* Prevent square corners from sticking out */
+        }
+        .logo-container img { width: 100%; height: 100%; object-fit: contain; }
+
+        .school-name { font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; opacity: 0.9; }
+        .event-name { font-size: 1.4rem; font-weight: 900; margin-top: 2px; }
+        .event-name span { color: var(--secondary); }
+
+        .badge-body {
+            flex: 1;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .role-title-fr {
+            font-size: 1.2rem; font-weight: 900;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .role-title-ar {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.8rem; font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .badge-label {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 10px;
+        }
+
+        .badge-footer {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-radius: 0 0 11px 11px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-info { font-size: 0.6rem; font-weight: 600; line-height: 1.2; }
+        .footer-date {
+            background: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem; font-weight: 800;
+        }
+
+        /* Decorative Elements */
+
+        .watermark {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-size: 2.2rem; font-weight: 900;
+            color: rgba(26, 54, 93, 0.04);
+            white-space: nowrap; pointer-events: none;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        .no-print-btn {
+            position: fixed; top: 20px; left: 20px;
+            background: var(--primary); color: white;
+            padding: 12px 25px; border-radius: 8px; border: none;
+            cursor: pointer; font-family: 'Tajawal', sans-serif; font-weight: 800;
+            z-index: 1000; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            html, body { background: none; padding: 0; margin: 0; width: 210mm; height: auto; }
+            .a4-sheet { 
+                box-shadow: none; width: 210mm; height: 297mm; 
+                padding: 5mm 10mm 15mm; gap: 5mm; 
+                page-break-after: always;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                position: relative;
+            }
+            .a4-sheet:last-child { page-break-after: auto; }
+            .badge { width: 92mm; height: 130mm; }
+            .no-print-btn { display: none; position: absolute; }
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <button class="no-print-btn" onclick="window.print()">🖨️ طباعة الشارات</button>
+
+    <div class="a4-sheet">
+        <!-- Badge 1: Responsable Accueil -->
+        <div class="badge">
+            <div class="badge-inner"><div class="watermark">GS.ALOUMRANE</div>
+                
+                <div class="badge-header">
+                    <div class="logo-container"><img src="logo.jpg"></div>
+                    <div class="school-name">GS AL OUMRANE</div>
+                    <div class="event-name">PORTES <span>OUVERTES</span></div>
+                </div>
+
+                <div class="badge-body">
+                    <div class="role-title-fr">RESPONSABLE ACCUEIL</div>
+                    <div class="role-title-ar">مسؤول(ة) مركز الاستقبال</div>
+                    <div class="badge-label">Coordination & Orientation</div>
+                </div>
+
+                <div class="badge-footer">
+                    <div class="footer-info">Sidi Maarouf<br>Casablanca</div>
+                    <div class="footer-date">16 MAI 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge 2: Responsable Accueil -->
+        <div class="badge">
+            <div class="badge-inner"><div class="watermark">GS.ALOUMRANE</div>
+                
+                <div class="badge-header">
+                    <div class="logo-container"><img src="logo.jpg"></div>
+                    <div class="school-name">GS AL OUMRANE</div>
+                    <div class="event-name">PORTES <span>OUVERTES</span></div>
+                </div>
+
+                <div class="badge-body">
+                    <div class="role-title-fr">RESPONSABLE ACCUEIL</div>
+                    <div class="role-title-ar">مسؤول مركز الاستقبال</div>
+                    <div class="badge-label">Coordination & Orientation</div>
+                </div>
+
+                <div class="badge-footer">
+                    <div class="footer-info">Sidi Maarouf<br>Casablanca</div>
+                    <div class="footer-date">16 MAI 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge 3: Coordination -->
+        <div class="badge">
+            <div class="badge-inner"><div class="watermark">GS.ALOUMRANE</div>
+                
+                <div class="badge-header">
+                    <div class="logo-container"><img src="logo.jpg"></div>
+                    <div class="school-name">GS AL OUMRANE</div>
+                    <div class="event-name">PORTES <span>OUVERTES</span></div>
+                </div>
+
+                <div class="badge-body">
+                    <div class="role-title-fr">COORDINATION GÉNÉRALE</div>
+                    <div class="role-title-ar">التنسيق العام</div>
+                    <div class="badge-label">Supervision & Support</div>
+                </div>
+
+                <div class="badge-footer">
+                    <div class="footer-info">Sidi Maarouf<br>Casablanca</div>
+                    <div class="footer-date">16 MAI 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge 4: Administration -->
+        <div class="badge">
+            <div class="badge-inner"><div class="watermark">GS.ALOUMRANE</div>
+                
+                <div class="badge-header">
+                    <div class="logo-container"><img src="logo.jpg"></div>
+                    <div class="school-name">GS AL OUMRANE</div>
+                    <div class="event-name">PORTES <span>OUVERTES</span></div>
+                </div>
+
+                <div class="badge-body">
+                    <div class="role-title-fr">ADMINISTRATION</div>
+                    <div class="role-title-ar">الإدارة</div>
+                    <div class="badge-label">Administration Team</div>
+                </div>
+
+                <div class="badge-footer">
+                    <div class="footer-info">Sidi Maarouf<br>Casablanca</div>
+                    <div class="footer-date">16 MAI 2026</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

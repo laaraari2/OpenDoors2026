@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brochure Stratégique 2026 - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1e3a8a; --brand-orange: #ea580c; --brand-gold: #c2912e;
+            --soft-bg: #fffbf5; --text-dark: #0f172a;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Tajawal', sans-serif; background-color: #f1f5f9; padding: 20px; }
+
+        /* A4 Landscape Size: 297mm x 210mm */
+        .page {
+            width: 297mm; height: 210mm;
+            background: white; margin: 20px auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative; overflow: hidden;
+            padding: 0; page-break-after: always;
+        }
+
+        .panel {
+            height: 100%; padding: 30px;
+            border-right: 1px dashed #cbd5e1;
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+        .panel:last-child { border-right: none; }
+
+        /* Typography */
+        h2 { font-size: 1.4rem; color: var(--brand-blue); margin-bottom: 12px; border-bottom: 4px solid var(--brand-orange); display: inline-block; }
+        h3 { font-size: 0.95rem; color: var(--brand-orange); margin-bottom: 8px; font-family: 'Outfit'; font-weight: 800; }
+        p { font-size: 0.85rem; line-height: 1.6; color: #334155; font-weight: 500; text-align: justify; }
+        ul { list-style: none; margin: 10px 0; }
+        li { font-size: 0.8rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        li::before { content: "•"; color: var(--brand-orange); font-size: 1.2rem; }
+
+        /* Poster 1 Cover Hybrid */
+        .cover-panel { background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.95)), url('ecole.png'); background-size: cover; color: white; justify-content: center; text-align: center; }
+        .cover-panel h1 { font-size: 2.8rem; font-weight: 900; line-height: 0.9; margin: 15px 0; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .cover-panel .motto { font-size: 1.2rem; color: var(--brand-gold); font-weight: 900; letter-spacing: 2px; }
+        .cover-panel .date-box { margin-top: 30px; padding: 15px; border: 2px solid var(--brand-gold); display: inline-block; background: rgba(255,255,255,0.1); border-radius: 10px; }
+
+        /* Stats & Tech */
+        .tech-pill { background: #f1f5f9; padding: 15px; border-radius: 15px; margin-bottom: 15px; border-left: 5px solid var(--brand-blue); }
+        .tech-pill strong { display: block; color: var(--brand-blue); font-size: 0.9rem; margin-bottom: 5px; }
+
+        .controls { position: fixed; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 10px; }
+        .btn { padding: 12px 20px; border-radius: 10px; border:none; cursor:pointer; font-weight: 800; text-decoration:none; display:flex; align-items:center; gap:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+        .btn-home { background: var(--brand-blue); color: white; }
+        .btn-print { background: var(--brand-orange); color: white; }
+
+        @media print {
+            .controls { display: none; }
+            body { padding: 0; background: white; }
+            .page { margin: 0; box-shadow: none; width: 297mm; height: 210mm; }
+            @page { size: A4 landscape; margin: 0; }
+        }
+
+        [dir="rtl"] { text-align: right; }
+        [dir="ltr"] { text-align: left; font-family: 'Outfit'; }
+    </style>
+
+    <meta name="description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران.">
+    <meta property="og:title" content="الأبواب المفتوحة 2026 - GS Al Oumrane">
+    <meta property="og:description" content="البوابة الرسمية للأبواب المفتوحة 2026 لمجموعة مدارس العمران. اكتشف البرنامج، الورشات، ومسار الزيارة.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls">
+        
+        <button onclick="window.print()" class="btn btn-print">🖨️ طباعة المطوية الاستراتيجية</button>
+    </div>
+
+    <!-- PAGE 1: RECTO - EXTERNAL (PUBLICITY & BACK COVER) -->
+    <div class="page" dir="rtl">
+        <!-- Panel 1: The Vision Flap (Arabic Expanded) -->
+        <div class="panel">
+            <h2 style="font-size: 1.6rem; border-bottom-width: 5px;">أبوابنا.. آفاقٌ لأحلامهم</h2>
+            <p style="font-size: 0.8rem; margin-bottom: 15px;">في مجموعة مدارس العمران، نؤمن أن "الأبواب المفتوحة" ليست مجرد فعالية سنوية، بل هي رحلة استكشافية لماهية التعليم في عام 2026. أبوابنا مختلفة لأنها تفتح آفاقاً جديدة للابتكار، وتعيد تعريف العلاقة بين التلميذ، التكنولوجيا، والأسرة.</p>
+            
+            <div style="margin-top: 10px;">
+                <h3 style="color: var(--brand-blue); border-right: 3px solid var(--brand-orange); padding-right: 8px;">1. الهوية والسمعة المؤسساتية</h3>
+                <p style="font-size: 0.75rem; margin-bottom: 10px;">بناء جسور الثقة مع الأسر من خلال الشفافية والاحترافية، مما يجعل من مؤسستنا مرجعاً للقيم والجودة في التدبير المدرسي.</p>
+            </div>
+            <div style="margin-top: 10px;">
+                <h3 style="color: var(--brand-blue); border-right: 3px solid var(--brand-orange); padding-right: 8px;">2. التميز العملياتي والتربوي</h3>
+                <p style="font-size: 0.75rem; margin-bottom: 10px;">التنسيق المحكم لـ 14 ورشة عمل تبرز الكفاءات العالية للفريق التربوي، وتوفر بيئة تعليمية آمنة ومحفزة لكل زائر وتلميذ.</p>
+            </div>
+            <div style="margin-top: 10px;">
+                <h3 style="color: var(--brand-blue); border-right: 3px solid var(--brand-orange); padding-right: 8px;">3. الابتكار السيادي الرقمي</h3>
+                <p style="font-size: 0.75rem; margin-bottom: 10px;">استخدام 10 أدوات رقمية ذكية ليس للاستعراض، بل لتمكين التلميذ من قيادة رحلته التعليمية، مما يجعل من "أبوابنا" بوابة حقيقية نحو الغد.</p>
+            </div>
+
+            <div style="margin-top: auto; padding: 12px; background: var(--soft-bg); border-radius: 12px; border: 1px dashed var(--brand-gold);">
+                <p style="font-weight: 900; color: var(--brand-gold); font-size: 0.85rem; text-align: center;">مستقبلنا يبدأ اليوم مع جيل 2026</p>
+            </div>
+        </div>
+
+        <!-- Panel 2: Digital Ecosystem (Back Cover) -->
+        <div class="panel" style="background: #f8fafc; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 5px;">🛡️</div>
+            <h2>المنظومة الرقمية</h2>
+            <p style="font-size: 0.75rem;">لقد قمنا بتطوير 10 أدوات رقمية لتأطير هذه الفعالية:</p>
+            <div style="text-align: right; margin: 10px 0;">
+                <div class="tech-pill" style="padding: 8px; margin-bottom: 8px;"><strong>نظام تتبع الورشات</strong><p style="font-size: 0.65rem;">إدارة الـ 14 ورشة بشكل متزامن وبدقة 30 دقيقة لكل حصة.</p></div>
+                <div class="tech-pill" style="padding: 8px; margin-bottom: 8px;"><strong>الرصد والتقييم</strong><p style="font-size: 0.65rem;">تحليل آراء الزوار فوراً لتطوير التجربة المستقبلية للمؤسسة.</p></div>
+            </div>
+            
+            <h2 style="margin-top: 10px;">خارطة الورشات الـ 14</h2>
+            <div style="display: grid; gap: 5px; text-align: right;">
+                <div class="tech-pill" style="padding: 8px; margin-bottom: 5px;"><strong>منطقة الملعب (Terrain)</strong><p style="font-size: 0.65rem;">الرسم، ركوب الخيل، الألعاب الكبرى 1 و 2</p></div>
+                <div class="tech-pill" style="padding: 8px; margin-bottom: 5px; border-right: 5px solid var(--brand-orange); border-left: none;"><strong>منطقة الساحة (La Cour)</strong><p style="font-size: 0.65rem;">ورشة العجين، الإذاعة، معرض الأعمال</p></div>
+                <div class="tech-pill" style="padding: 8px; margin-bottom: 5px; border-right: 5px solid var(--brand-gold); border-left: none;"><strong>القاعات / الفضاءات</strong><p style="font-size: 0.65rem;">التجميل، الإعلاميات، المسرح، البستنة</p></div>
+            </div>
+            <p class="small-text" style="margin-top: 5px;">GS Al Oumrane - Management 2026</p>
+            <div style="margin-top: auto; padding-top: 10px;">
+                <img src="logo.jpg" alt="Logo" style="height: 60px; width: auto; opacity: 0.9;">
+            </div>
+        </div>
+
+        <!-- Panel 3: Front Cover (Hybrid Poster 1) -->
+        <div class="panel cover-panel">
+            <div class="motto">مجموعة مدارس العمران</div>
+            <div style="font-size: 0.8rem; font-weight: 800; color: white; opacity: 0.8;">GROUPE SCOLAIRE AL OUMRANE</div>
+            <h1>أبوابنا.. آفاقٌ لأحلامهم</h1>
+            <div class="motto" style="font-size: 1.5rem; margin-top: 10px;">لماذا أبوابنا مختلفة؟</div>
+            <div class="date-box">
+                <p style="color: white; font-size: 1.2rem; font-weight: 900;">16 ماي 2026</p>
+                <p style="color: var(--brand-gold); font-size: 0.8rem; font-weight: 900;">16 MAI 2026</p>
+            </div>
+            
+            <div style="margin-top: 25px; display: flex; justify-content: center; gap: 15px; font-size: 0.75rem; font-weight: 800;">
+                <span>🎯 14 ورشة</span>
+                <span>🏇 فروسية</span>
+                <span>💻 ابتكار</span>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <div style="width: 120px; height: 120px; background-color: white; border-radius: 50%; border: 4px solid var(--brand-orange); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); overflow: hidden;">
+                    <img src="logo.jpg" alt="Logo" style="max-height: 80px; max-width: 90px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; font-size: 0.7rem; color: #ffffff;">
+                <p style="margin-bottom: 3px; color: #ffffff;">📍 تجزئة سلمى، شارع سيدي معروف، الدار البيضاء</p>
+                <p style="margin-bottom: 3px; color: #ffffff;">📞 05229-72524</p>
+                <p style="color: #ffffff;">🌐 www.gs-alumrane.ma</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: VERSO - INTERNAL (THE NEW STRATEGY & MAP) -->
+    <div class="page" dir="ltr">
+        <!-- Panel 4: Corporate Strategy (French) -->
+        <div class="panel">
+            <h2 style="font-family:'Outfit'; border-bottom-color: var(--brand-blue);">DES PORTES... DES HORIZONS</h2>
+            <p>Au GS Al Oumrane, nos "Portes Ouvertes" sont bien plus qu'un événement ; c'est une immersion dans le futur de l'éducation. Nos portes sont différentes car elles ouvrent de nouveaux horizons pour chaque enfant.</p>
+            <div style="margin: 15px 0;">
+                <h3 style="color: var(--brand-blue);">1. IDENTITÉ INSTITUTIONNELLE</h3>
+                <p style="font-size: 0.75rem;">Renforcer la confiance des parents en mettant en avant notre rigueur professionnelle et notre image de marque premium.</p>
+            </div>
+            <div style="margin: 15px 0;">
+                <h3 style="color: var(--brand-blue);">2. EXCELLENCE OPÉRATIONNELLE</h3>
+                <p style="font-size: 0.75rem;">Une coordination parfaite de 14 ateliers simultanés, assurant une concentration totale sur le succès pédagogique.</p>
+            </div>
+            <div style="margin: 15px 0;">
+                <h3 style="color: var(--brand-blue);">3. INNOVATION PÉDAGOGIQUE</h3>
+                <p style="font-size: 0.75rem;">Utilisation de 10 outils de gestion numérique de pointe pour optimiser l'événement et collecter des données en temps réel.</p>
+            </div>
+
+            <div style="margin-top: auto; padding: 12px; background: var(--soft-bg); border-radius: 12px; border: 1px dashed var(--brand-gold);">
+                <p style="font-weight: 900; color: var(--brand-gold); font-size: 0.85rem; text-align: center; font-family: 'Outfit';">Notre futur commence aujourd'hui avec la génération 2026</p>
+            </div>
+        </div>
+
+        <!-- Panel 5: Workshops & Digital Ecosystem Merged -->
+        <div class="panel" style="background: var(--soft-bg); padding: 20px;">
+            <h2 style="font-family:'Outfit'; font-size: 1.2rem; margin-bottom: 8px;">LES 14 ATELIERS</h2>
+            <div style="display: grid; gap: 5px;">
+                <div class="tech-pill" style="padding: 6px; margin-bottom: 2px; font-size: 0.75rem;"><strong>Zone Terrain</strong><p style="font-size: 0.65rem;">Dessin, Équitation, Grands Jeux 1 & 2</p></div>
+                <div class="tech-pill" style="padding: 6px; margin-bottom: 2px; border-left-color: var(--brand-orange); font-size: 0.75rem;"><strong>Zone de la Cour</strong><p style="font-size: 0.65rem;">Radio Scolaire, Pâte à modeler, Exposition d'Art</p></div>
+                <div class="tech-pill" style="padding: 6px; margin-bottom: 2px; border-left-color: var(--brand-gold); font-size: 0.75rem;"><strong>Espaces Intérieurs</strong><p style="font-size: 0.65rem;">Maquillage, Informatique, Tableau Interactif, Nutrition</p></div>
+                <div class="tech-pill" style="padding: 6px; margin-bottom: 2px; border-left-color: #22c55e; font-size: 0.75rem;"><strong>Grands Espaces</strong><p style="font-size: 0.65rem;">Théâtre, Bibliothèque, Jardinage</p></div>
+            </div>
+
+            <h2 style="font-family:'Outfit'; border-bottom-color: #22c55e; font-size: 1.2rem; margin-top: 15px; margin-bottom: 8px;">ÉCOSYSTÈME NUMÉRIQUE</h2>
+            <p style="font-size: 0.7rem; margin-bottom: 10px;">Notre cadre organisationnel 2026 utilise 10 outils numériques spécialisés :</p>
+            <div class="tech-pill" style="padding: 6px; margin-bottom: 5px;"><strong>Intelligence des Flux</strong><p style="font-size: 0.65rem;">Synchronisation des tâches en temps réel.</p></div>
+            <div class="tech-pill" style="padding: 6px; border-left-color: var(--brand-gold);"><strong>Analyse des Retours</strong><p style="font-size: 0.65rem;">Analyse en direct des sentiments des visiteurs.</p></div>
+            <div style="margin-top: auto; padding-top: 10px; text-align: center;">
+                <img src="logo.jpg" alt="Logo" style="height: 60px; width: auto; opacity: 0.9;">
+            </div>
+        </div>
+
+        <!-- Panel 6: Full Poster (French Version) -->
+        <div class="panel cover-panel" style="background: linear-gradient(rgba(234, 88, 12, 0.9), rgba(234, 88, 12, 0.95)), url('ecole.png'); background-size: cover; border-right: none;">
+            <div class="motto" style="color: white; font-size: 0.9rem;">GROUPE SCOLAIRE AL OUMRANE</div>
+            <h1 style="font-size: 2.2rem; margin: 20px 0; color: white;">PORTES OUVERTES 2026</h1>
+            <div style="margin: 15px 0;">
+                <span style="font-size: 1.1rem; color: var(--brand-gold); background: white; padding: 5px 15px; border-radius: 5px; font-weight: 900; font-family: 'Outfit';">EXCELLENCE & INNOVATION</span>
+            </div>
+            <div class="date-box" style="margin-top: 30px; border-color: white; background: rgba(255,255,255,0.1);">
+                <p style="color: white; font-size: 1.5rem; font-weight: 900; margin: 0;">16 MAI 2026</p>
+            </div>
+
+            <div style="margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.8rem; font-weight: 800; color: white;">
+                <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;">✨ 14 Ateliers</div>
+                <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px;">🚀 Innovation</div>
+            </div>
+
+            <div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+                <div style="width: 120px; height: 120px; background-color: white; border-radius: 50%; border: 4px solid var(--brand-orange); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); overflow: hidden;">
+                    <img src="logo.jpg" alt="Logo" style="max-height: 80px; max-width: 90px; object-fit: contain;">
+                </div>
+            </div>
+
+            <div style="margin-top: auto; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; font-size: 0.75rem; color: #ffffff;">
+                <p style="margin-bottom: 3px; color: #ffffff;">📍 Lotissement Salma, Sidi Maârouf</p>
+                <p style="margin-bottom: 5px; color: #ffffff;">📞 05229-72524</p>
+                <p style="font-weight: 900; margin-bottom: 5px; color: #ffffff;">NOS PORTES... DES HORIZONS</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html" title="الرئيسية (Portal)">🏠</a>
+        <a href="open_doors_visitor_guide.html" title="دليل الزائر">🧭</a>
+        <a href="open_doors_journey.html" title="مسار الزيارة">🗺️</a>
+        <a href="open_doors_rotation.html" title="الدوران">🔄</a>
+        <a href="open_doors_feedback.html" title="التقييم">⭐</a>
+    </nav>
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1); z-index: 9999; transition: all 0.4s ease;
+    }
+    .global-floating-nav:hover {
+        background: rgba(26, 54, 93, 0.95); box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+    }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; background: transparent; transition: all 0.3s ease;
+        display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .global-floating-nav a:hover {
+        transform: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4);
+    }
+    @media print { .no-print { display: none !important; } }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+</body>
+
+</html>

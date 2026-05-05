@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>المخطط الزمني الشامل للأقسام - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #9a3412;
+            --border: #334155;
+            --bg: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page {
+            size: A4 landscape;
+            margin: 5mm;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            padding: 10px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .container {
+            width: 287mm;
+            min-height: 200mm;
+            background: white;
+            margin: 0 auto;
+            padding: 10mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .school-info h1 { font-size: 1.4rem; color: var(--primary); font-weight: 900; }
+        .school-info p { font-size: 0.9rem; color: var(--accent); font-weight: 700; }
+
+        .logo img { height: 60px; }
+
+        .title-section { text-align: center; margin-bottom: 15px; }
+        .title-section h2 { 
+            font-size: 1.6rem; 
+            color: var(--primary); 
+            font-weight: 900; 
+            background: #e2e8f0;
+            padding: 5px 30px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            table-layout: fixed;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 6px 4px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 900;
+        }
+
+        .class-col {
+            width: 70px;
+            background-color: #f1f5f9;
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .time-header {
+            background-color: #334155;
+            color: white;
+            font-size: 0.7rem;
+        }
+
+        .break-cell {
+            background-color: #cbd5e1;
+            font-weight: 900;
+            color: #475569;
+            width: 20px;
+            font-size: 0.6rem;
+            writing-mode: vertical-rl;
+            text-align: center;
+        }
+
+        .workshop-cell {
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+
+        /* Color coding for workshops (Subtle) */
+        .ws-theatre { background-color: #fff1f2; }
+        .ws-horse { background-color: #f0fdf4; }
+        .ws-it { background-color: #eff6ff; }
+        .ws-games { background-color: #fefce8; }
+        .ws-food { background-color: #fff7ed; }
+        .ws-lib { background-color: #f5f3ff; }
+
+        .footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .container { box-shadow: none; width: 100%; margin: 0; }
+            .no-print { display: none; }
+        }
+
+        .no-print {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">🖨️ طباعة المخطط (Landscape)</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="school-info">
+                <h1>مجموعة مدارس العمران</h1>
+                <p>مخطط دوران الأقسام - الأبواب المفتوحة 2026</p>
+            </div>
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+            </div>
+        </header>
+
+        <div class="title-section">
+            <h2>المخطط الزمني الشامل لحركة الأقسام (Global Schedule)</h2>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" class="class-col">القسم</th>
+                    <th colspan="4" class="time-header">الفترة الصباحية</th>
+                    <th rowspan="2" class="break-cell">استراحة</th>
+                    <th colspan="4" class="time-header">الفترة المسائية</th>
+                </tr>
+                <tr>
+                    <th class="time-header">10:00 - 10:30</th>
+                    <th class="time-header">10:35 - 11:05</th>
+                    <th class="time-header">11:10 - 11:40</th>
+                    <th class="time-header">11:45 - 12:15</th>
+                    <th class="time-header">14:00 - 14:30</th>
+                    <th class="time-header">14:35 - 15:05</th>
+                    <th class="time-header">15:10 - 15:40</th>
+                    <th class="time-header">15:45 - 16:15</th>
+                </tr>
+            </thead>
+            <tbody id="summaryTable"></tbody>
+        </table>
+
+        <div class="footer">
+            <span>مجموعة مدارس العمران - Excellence & Valeurs</span>
+            <span>ملاحظة: الختام بورشة المسرح لجميع الأقسام (16:15 - 17:00)</span>
+            <span>تاريخ الحدث: 16 ماي 2026</span>
+        </div>
+    </div>
+
+    <script>
+        const rotationData = [
+            { name: "العجين", slots: ["MS", "GS", "CPA", "", "", "", "", ""] },
+            { name: "التجميل", slots: ["GS", "MS", "", "CPB", "", "", "", ""] },
+            { name: "الكراكيز", slots: ["", "", "", "", "CPB", "CPA", "GS/MS", ""] },
+            { name: "الألعاب 1", slots: ["CE1A", "CE2A", "CM1A/CM1B", "CPA", "CE2A", "6A/6B", "CE1B", "CM1A/CM1B/MS"] },
+            { name: "الألعاب 2", slots: ["CE1B", "CE2B", "CPB", "GS/MS", "CE2B", "CM2", "CE1A", "6A/6B/GS"] },
+            { name: "المكتبة (ف)", slots: ["CPA", "CE1A", "6A/6B", "CM2", "CM1A/CM1B", "CE2A", "6A", ""] },
+            { name: "المكتبة (ع)", slots: ["CPB", "CE1B", "CM2", "6A/6B", "", "CE2B", "6B", "CM2"] },
+            { name: "البستنة", slots: ["CE2B", "CPB", "CE1B", "CM1B", "CPA", "CM1A", "CE2A", "CE1A"] },
+            { name: "المسرح", slots: ["CM1A/CM1B", "CM2", "GS/MS", "CE1A/CE1B", "6A/6B", "", "CPA/CPB", "CE2A/CE2B"] },
+            { name: "الإعلاميات", slots: ["CE2A", "", "CE1A", "CM1A", "CM2", "CM1B", "CE2B", "CE1B"] },
+            { name: "ركوب الخيل", slots: ["6A/6B", "CM1A/CM1B/CPA", "CE2A/CE2B", "", "CE1A/CE1B", "CPB/GS/MS", "CM2", ""] },
+            { name: "ت. الغذائية", slots: ["CM2", "6A/6B", "", "CE2A/CE2B", "GS/MS", "CE1A/CE1B", "CM1A/CM1B", "CPA/CPB"] }
+        ];
+
+        const classes = ["MS", "GS", "CPA", "CPB", "CE1A", "CE1B", "CE2A", "CE2B", "CM1A", "CM1B", "CM2", "6A", "6B"];
+
+        function matches(tag, cls) {
+            if (!tag) return false;
+            tag = tag.toUpperCase();
+            cls = cls.toUpperCase();
+            if (tag === cls) return true;
+            if (tag.includes('/') && tag.split('/').includes(cls)) return true;
+            const bases = ["CP", "CE1", "CE2", "CM1", "6"];
+            for (let b of bases) { if (tag === b && cls.startsWith(b)) return true; }
+            return false;
+        }
+
+        const summaryTable = document.getElementById('summaryTable');
+        
+        classes.forEach(group => {
+            let row = `<tr><td class="class-col">${group}</td>`;
+            for (let i = 0; i < 8; i++) {
+                if (i === 4) row += `<td class="break-cell">استراحة</td>`;
+                
+                let found = [];
+                rotationData.forEach(w => {
+                    if (matches(w.slots[i], group)) found.push(w.name);
+                });
+                
+                let ws = found.join(" + ") || "-";
+                let cls = "";
+                if (ws.includes("المسرح")) cls = "ws-theatre";
+                else if (ws.includes("ركوب الخيل")) cls = "ws-horse";
+                else if (ws.includes("الألعاب")) cls = "ws-games";
+                else if (ws.includes("ت. الغذائية")) cls = "ws-food";
+                else if (ws.includes("المكتبة")) cls = "ws-lib";
+                else if (ws.includes("الإعلاميات")) cls = "ws-it";
+
+                row += `<td class="workshop-cell ${cls}">${ws}</td>`;
+            }
+            row += "</tr>";
+            summaryTable.innerHTML += row;
+        });
+    </script>
+</body>
+</html>

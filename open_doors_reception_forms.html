@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مركز النماذج والمطبوعات - الأبواب المفتوحة 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --accent: #9a3412;
+            --bg: #f1f5f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg);
+            color: #1e293b;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .form-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .form-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 50px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Floating Back Button */
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: var(--accent);
+        }
+        @media print {
+            .back-home { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="container">
+        <header>
+            <h1>مركز النماذج والمطبوعات</h1>
+            <p>قسم تدبير مركز الاستقبال - الأبواب المفتوحة 2026</p>
+        </header>
+
+        <div class="forms-grid">
+            <!-- Form 1: Exit Permit -->
+            <div class="form-card">
+                <div>
+                    <div class="icon">🎟️</div>
+                    <h3>إذن المغادرة الاستثنائية</h3>
+                    <p>نموذج مخصص لتسليم أولياء الأمور عند رغبتهم في اصطحاب أبنائهم قبل انتهاء الوقت الرسمي (3 في الورقة).</p>
+                </div>
+                <a href="open_doors_exit_permit.html" class="btn">فتح ومعاينة النموذج</a>
+            </div>
+
+            <!-- Form 2: Visitor Log -->
+            <div class="form-card">
+                <div>
+                    <div class="icon">📋</div>
+                    <h3>سجل الوافدين والزوار</h3>
+                    <p>نموذج احترافي لتسجيل بيانات الزوار، أرقام هواتفهم، وملاحظاتهم عند الدخول للمؤسسة.</p>
+                </div>
+                <a href="open_doors_visitor_log.html" class="btn">فتح ومعاينة النموذج</a>
+            </div>
+
+            <!-- Form 3: Responsibility Badges -->
+            <div class="form-card">
+                <div>
+                    <div class="icon">🆔</div>
+                    <h3>شارة المسؤولية</h3>
+                    <p>طباعة الشارات التعريفية الخاصة بمسؤولي مركز الاستقبال والمرافقين للحدث.</p>
+                </div>
+                <a href="open_doors_reception_badge.html" class="btn">فتح ومعاينة الشارات</a>
+            </div>
+        </div>
+
+        <a href="open_doors_reception_auth.html" class="back-link">⬅️ العودة لصفحة المهام الإدارية</a>
+
+        <footer>
+            جميع الحقوق محفوظة - مجموعة مدارس العمران 2026 ©
+        </footer>
+    </div>
+
+</body>
+</html>

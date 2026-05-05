@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بطاقة المرافقة - GS Al Oumrane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1a365d; --brand-navy: #0f172a; --brand-orange: #ea580c; --brand-gold: #d4af37;
+            --brand-gray: #f1f5f9;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { 
+            font-family: 'Tajawal', sans-serif; background-color: #f8fafc; color: #000;
+        }
+
+        /* ----- UI Controls (No Print) ----- */
+        .controls { 
+            background: #fff; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap; border-bottom: 3px solid var(--brand-gold);
+        }
+        .control-group { display: flex; flex-direction: column; gap: 5px; }
+        .control-group label { font-weight: 800; font-size: 0.9rem; color: var(--brand-navy); }
+        .control-group select, .control-group input { 
+            padding: 10px; font-family: 'Tajawal', sans-serif; font-size: 1rem; border: 2px solid #cbd5e1; border-radius: 8px;
+            font-weight: 700; min-width: 200px;
+        }
+        .btn { padding: 10px 25px; border-radius: 8px; border:none; cursor:pointer; font-weight: 800; display:flex; align-items:center; gap:8px; font-size: 1rem; transition: all 0.3s; font-family: 'Tajawal', sans-serif; height: 44px; }
+        .btn-primary { background: var(--brand-blue); color: white; }
+        .btn-print { background: var(--brand-orange); color: white; }
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* ----- Print Page Styling ----- */
+        .print-page { width: 210mm; margin: 0 auto; background: white; padding: 15mm; border: 1px solid #ddd; box-shadow: 0 10px 25px rgba(0,0,0,0.1); min-height: 297mm; }
+        
+        .header { display: flex; justify-content: space-between; align-items: stretch; margin-bottom: 15px; border-bottom: 3px solid #000; padding-bottom: 10px; }
+        .school-info { text-align: right; width: 35%; display: flex; flex-direction: column; justify-content: center; }
+        .school-info h1 { font-size: 1.6rem; font-weight: 900; color: #000; }
+        .school-info h2 { font-size: 1.2rem; color: #444; font-weight: 800; }
+        
+        .logo-container { width: 30%; display: flex; justify-content: center; align-items: center; }
+        .school-logo { max-height: 55px; object-fit: contain; }
+
+        .event-meta { text-align: left; width: 35%; border-left: 3px solid #000; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; }
+        .event-meta h1 { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 900; }
+        .event-meta p { font-size: 0.8rem; color: #555; font-weight: 800; text-transform: uppercase; }
+
+        .card-title { text-align: center; font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; color: var(--brand-blue); text-transform: uppercase; }
+
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .info-box { border: 2px dashed #444; padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 10px; }
+        .info-box span.label { font-weight: 800; font-size: 1.2rem; color: #444; }
+        .info-box span.value { font-weight: 900; font-size: 1.4rem; color: #000; }
+        .info-box.class-box { background: #f8fafc; border: 2px solid #000; }
+
+        /* Timeline / Path Table */
+        .timeline-section { margin-bottom: 25px; }
+        .timeline-section h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 900; display: flex; align-items: center; gap: 8px; }
+        .timeline-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 0.9rem; border: 2px solid #000; }
+        .timeline-table th, .timeline-table td { border: 1px solid #000; padding: 8px; font-weight: 800; }
+        .timeline-table th { background: #f1f5f9; font-weight: 900; font-size: 0.8rem; padding: 2px; height: 45px; }
+        .workshop-item { font-weight: 900; color: var(--brand-blue); }
+        .break-time { background: #fffbeb; color: #b45309; }
+        .closing-time { background: #fef3c7; color: #b45309; font-weight: 900; }
+
+        /* Students Table */
+        .students-section h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 900; display: flex; align-items: center; gap: 8px; }
+        .students-table { width: 100%; border-collapse: collapse; border: 2px solid #000; }
+        .students-table th, .students-table td { border: 1px solid #000; padding: 6px; }
+        .students-table th { background: #f1f5f9; font-weight: 900; font-size: 1rem; height: 35px; }
+        .students-table td { height: 28px; } /* Row height for writing */
+        .col-num { width: 40px; text-align: center; font-weight: 900; }
+        .col-name { width: 40%; }
+        .col-photo { width: 15%; text-align: center; font-size: 0.9rem; }
+
+        @media print {
+            body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .controls, .global-floating-nav { display: none !important; }
+            .print-page { width: 100%; min-height: auto; margin: 0; padding: 0; border: none; box-shadow: none; }
+            @page { size: A4 portrait; margin: 10mm; }
+        }
+    </style>
+
+    <!-- Global Navigation System -->
+    <style>
+        .back-home {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: 2px solid white;
+        }
+        .back-home:hover {
+            transform: scale(1.1) translateY(-5px);
+            background: #d4af37;
+        }
+        @media print {
+            .back-home { display: none !important; }
+        }
+    </style>
+
+</head>
+<body>
+    <a href="index.html" class="back-home" title="العودة للرئيسية">🏠</a>
+
+    <div class="controls no-print">
+        <div class="control-group">
+            <label>اختر القسم (المرجو تحديد القسم لاستخراج مساره):</label>
+            <select id="classSelector" onchange="generateCard()">
+                <option value="" disabled selected>-- اختر القسم --</option>
+                <optgroup label="Maternelle">
+                    <option value="MS">Moyenne Section (MS)</option>
+                    <option value="GS">Grande Section (GS)</option>
+                </optgroup>
+                <optgroup label="Primaire - Cycle 1">
+                    <option value="CPA">CP A</option>
+                    <option value="CPB">CP B</option>
+                    <option value="CE1A">CE1 A</option>
+                    <option value="CE1B">CE1 B</option>
+                    <option value="CE2A">CE2 A</option>
+                    <option value="CE2B">CE2 B</option>
+                </optgroup>
+                <optgroup label="Primaire - Cycle 2">
+                    <option value="CM1A">CM1 A</option>
+                    <option value="CM1B">CM1 B</option>
+                    <option value="CM2">CM2</option>
+                    <option value="6A">6ème A</option>
+                    <option value="6B">6ème B</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="control-group">
+            <label>اسم المرافقة (اختياري):</label>
+            <input type="text" id="guideNameInput" placeholder="أدخل اسم المرافقة هنا..." onkeyup="updateGuideName()">
+        </div>
+        <button class="btn btn-print" onclick="window.print()">🖨️ طباعة البطاقة</button>
+    </div>
+
+    <div class="print-page" id="printableCard" style="display: none;">
+        <div class="header">
+            <div class="school-info">
+                <h1>مجموعة مدارس العمران</h1>
+                <h2>بطاقة المرافقة 2026</h2>
+            </div>
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo" class="school-logo">
+            </div>
+            <div class="event-meta">
+                <h1>G.S. AL OUMRANE</h1>
+                <p>Année Scolaire 2025-2026</p>
+            </div>
+        </div>
+
+        <div class="card-title">Fiche d'accompagnatrice - بطاقة المرافقة</div>
+
+        <div class="info-grid">
+            <div class="info-box class-box">
+                <span class="label">القسم (Classe) :</span>
+                <span class="value" id="displayClass"></span>
+            </div>
+            <div class="info-box">
+                <span class="label">المرافقة (Guide) :</span>
+                <span class="value" id="displayGuide">.............................................</span>
+            </div>
+        </div>
+
+        <div class="timeline-section">
+            <h3>🔄 مسار الورشات الخاص بالقسم</h3>
+            <table class="timeline-table">
+                <thead>
+                    <tr>
+                        <th>10:00 - 10:30</th>
+                        <th>10:35 - 11:05</th>
+                        <th>11:10 - 11:40</th>
+                        <th>11:45 - 12:15</th>
+                        <th class="break-time" style="width: 30px; writing-mode: vertical-rl; padding: 2px 0;">استراحة</th>
+                        <th>14:00 - 14:30</th>
+                        <th>14:35 - 15:05</th>
+                        <th>15:10 - 15:40</th>
+                        <th>15:45 - 16:15</th>
+                        <th class="closing-time" style="width: 40px; writing-mode: vertical-rl; line-height: 1.1;">16:15 - 17:00 الختام</th>
+                    </tr>
+                </thead>
+                <tbody id="timelineBody">
+                    <!-- Timeline will be injected here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="students-section">
+            <h3>📋 لائحة التلاميذ والملاحظات</h3>
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th class="col-num">الرقم</th>
+                        <th class="col-name">اسم التلميذ(ة)</th>
+                        <th class="col-photo">موافقة التصوير 📸</th>
+                        <th>الملاحظات / التقييم</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsBody">
+                    <!-- 25 rows will be injected here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Global Navigation Bar -->
+    <nav class="global-floating-nav no-print">
+        <a href="open_doors_program.html" title="الرئيسية (Portal)">🏠</a>
+        <a href="open_doors_visitor_guide.html" title="دليل الزائر">🧭</a>
+        <a href="open_doors_journey.html" title="مسار الزيارة">🗺️</a>
+        <a href="open_doors_rotation.html" title="جدول الدوران">🔄</a>
+        <a href="open_doors_guide_card.html" title="بطاقة المرافقة">📋</a>
+    </nav>
+
+    <style>
+    .global-floating-nav {
+        position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+        background: rgba(26, 54, 93, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+        display: flex; gap: 8px; padding: 10px 20px; border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1); z-index: 9999; transition: all 0.4s ease;
+    }
+    .global-floating-nav:hover { background: rgba(26, 54, 93, 0.95); box-shadow: 0 15px 40px rgba(212,175,55,0.2); }
+    .global-floating-nav a {
+        text-decoration: none; font-size: 1.3rem; padding: 10px; width: 45px; height: 45px;
+        border-radius: 50%; background: transparent; transition: all 0.3s ease;
+        display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .global-floating-nav a:hover { transform: translateY(-4px); background: #d4af37; box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+    @media (max-width: 768px) {
+        .global-floating-nav { padding: 8px 12px; gap: 5px; width: max-content; }
+        .global-floating-nav a { width: 40px; height: 40px; font-size: 1.1rem; }
+    }
+    </style>
+
+    <script>
+        // Master Rotation Schedule Data
+        // Row = Workshop Name, Array = 9 Timeslots (10:00, 10:30, 11:00, 11:30, 12:00, 14:00, 14:30, 15:00, 15:30)
+        const rotationSchedule = [
+    {
+        "name": "العجين",
+        "slots": [
+            "MS",
+            "GS",
+            "CPA",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "name": "التجميل",
+        "slots": [
+            "GS",
+            "MS",
+            "",
+            "CPB",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        "name": "الكراكيز",
+        "slots": [
+            "",
+            "",
+            "",
+            "",
+            "CPB",
+            "CPA",
+            "GS/MS",
+            ""
+        ]
+    },
+    {
+        "name": "الألعاب 1",
+        "slots": [
+            "CE1A",
+            "CE2A",
+            "CM1A/CM1B",
+            "CPA",
+            "CE2A",
+            "6A/6B",
+            "CE1B",
+            "CM1A/CM1B/MS"
+        ]
+    },
+    {
+        "name": "الألعاب 2",
+        "slots": [
+            "CE1B",
+            "CE2B",
+            "CPB",
+            "GS/MS",
+            "CE2B",
+            "CM2",
+            "CE1A",
+            "6A/6B/GS"
+        ]
+    },
+    {
+        "name": "المكتبة (ف)",
+        "slots": [
+            "CPA",
+            "CE1A",
+            "6A/6B",
+            "CM2",
+            "CM1A/CM1B",
+            "CE2A",
+            "6A",
+            ""
+        ]
+    },
+    {
+        "name": "المكتبة (ع)",
+        "slots": [
+            "CPB",
+            "CE1B",
+            "CM2",
+            "6A/6B",
+            "",
+            "CE2B",
+            "6B",
+            "CM2"
+        ]
+    },
+    {
+        "name": "البستنة",
+        "slots": [
+            "CE2B",
+            "CPB",
+            "CE1B",
+            "CM1B",
+            "CPA",
+            "CM1A",
+            "CE2A",
+            "CE1A"
+        ]
+    },
+    {
+        "name": "المسرح",
+        "slots": [
+            "CM1A/CM1B",
+            "CM2",
+            "GS/MS",
+            "CE1A/CE1B",
+            "6A/6B",
+            "",
+            "CPA/CPB",
+            "CE2A/CE2B"
+        ]
+    },
+    {
+        "name": "الإعلاميات",
+        "slots": [
+            "CE2A",
+            "",
+            "CE1A",
+            "CM1A",
+            "CM2",
+            "CM1B",
+            "CE2B",
+            "CE1B"
+        ]
+    },
+    {
+        "name": "ركوب الخيل",
+        "slots": [
+            "6A/6B",
+            "CM1A/CM1B/CPA",
+            "CE2A/CE2B",
+            "",
+            "CE1A/CE1B",
+            "CPB/GS/MS",
+            "CM2",
+            ""
+        ]
+    },
+    {
+        "name": "التربية الغذائية",
+        "slots": [
+            "CM2",
+            "6A/6B",
+            "",
+            "CE2A/CE2B",
+            "GS/MS",
+            "CE1A/CE1B",
+            "CM1A/CM1B",
+            "CPA/CPB"
+        ]
+    }
+];
+
+        // Times array for reference
+        const times = ["10:00", "10:30", "11:00", "11:30", "12:00", "14:00", "14:30", "15:00", "15:30"];
+
+        // Helper to check if a scheduled class tag matches the selected class
+        // e.g. "CP" matches "CPA" or "CPB"
+        // "MS/GS" matches "MS" or "GS"
+        function matchesClass(tag, selectedClass) {
+            if (!tag) return false;
+            tag = tag.toUpperCase().trim();
+            const selected = selectedClass.toUpperCase().trim();
+            
+            if (tag === selected) return true;
+            
+            // Handle combinations like MS/GS or GS/MS
+            if (tag.includes('/')) {
+                const parts = tag.split('/');
+                if (parts.includes(selected)) return true;
+            }
+
+            // Handle base classes like "CP" matching "CPA" and "CPB"
+            // If tag is "CP" and selected is "CPA", it's a match.
+            const baseClasses = ["CP", "CE1", "CE2", "CM1", "6"];
+            for (let base of baseClasses) {
+                if (tag === base && selected.startsWith(base)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        function generateCard() {
+            const selector = document.getElementById('classSelector');
+            const selectedClass = selector.value;
+            if (!selectedClass) return;
+
+            document.getElementById('printableCard').style.display = 'block';
+            document.getElementById('displayClass').innerText = selector.options[selector.selectedIndex].text;
+
+            // Generate Timeline Array for the selected class
+            let classPath = ["", "", "", "", "", "", "", ""]; // 8 slots
+            
+            for (let w of rotationSchedule) {
+                for (let i = 0; i < 8; i++) {
+                    if (matchesClass(w.slots[i], selectedClass)) {
+                        // Conflict resolution (just in case, append or overwrite)
+                        if (classPath[i]) {
+                            classPath[i] += " + " + w.name; // Should not happen in a valid schedule
+                        } else {
+                            classPath[i] = w.name;
+                        }
+                    }
+                }
+            }
+
+            // Build Timeline HTML
+            let html = "<tr style='height: 45px;'>";
+            for (let i = 0; i < 4; i++) {
+                html += `<td class="${classPath[i] ? 'workshop-item' : ''}">${classPath[i] || '-'}</td>`;
+            }
+            html += `<td class="break-time" style="writing-mode: vertical-rl; letter-spacing: 2px;">اســـــتراحة</td>`;
+            for (let i = 4; i < 8; i++) {
+                html += `<td class="${classPath[i] ? 'workshop-item' : ''}">${classPath[i] || '-'}</td>`;
+            }
+            html += `<td class="closing-time" style="font-size: 0.8rem; writing-mode: vertical-rl;">الخـــتام</td>`;
+            html += "</tr>";
+            document.getElementById('timelineBody').innerHTML = html;
+
+            // Build Students Table (25 rows)
+            let studentsHtml = "";
+            for (let i = 1; i <= 25; i++) {
+                studentsHtml += `
+                    <tr>
+                        <td class="col-num">${i}</td>
+                        <td class="col-name"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                `;
+            }
+            document.getElementById('studentsBody').innerHTML = studentsHtml;
+        }
+
+        function updateGuideName() {
+            const val = document.getElementById('guideNameInput').value;
+            document.getElementById('displayGuide').innerText = val ? val : ".............................................";
+        }
+    </script>
+</body>
+</html>
