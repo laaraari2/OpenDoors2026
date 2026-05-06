@@ -22,6 +22,8 @@
             font-family: 'Cairo', sans-serif;
             background-color: #f1f5f9;
             padding: 20px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .program-card {
@@ -63,14 +65,16 @@
         }
 
         .ceremony-title {
-            background: var(--brand-gold);
+            background: linear-gradient(135deg, var(--brand-gold), #7c2d12);
             color: white;
             display: inline-block;
-            padding: 10px 40px;
-            font-size: 1.5rem;
+            padding: 12px 45px;
+            font-size: 1.6rem;
             font-weight: 900;
             border-radius: 50px;
-            margin-top: 2px;
+            margin-top: 5px;
+            box-shadow: 0 5px 15px rgba(154, 52, 18, 0.3);
+            border: 2px solid white;
         }
 
         .meta-info {
@@ -84,26 +88,27 @@
         }
 
         .timeline {
-            margin-top: 20px;
+            margin-top: 30px;
             padding: 0 40px;
         }
 
         .timeline-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 5px;
+            gap: 20px;
+            margin-bottom: 8px;
             position: relative;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             border-bottom: 1px dashed #e2e8f0;
         }
 
         .time {
-            width: 100px;
+            width: 140px; /* Increased width to keep time on one line */
             font-weight: 950;
             color: var(--brand-gold);
             font-family: 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            text-align: left;
+            font-size: 1.15rem;
+            text-align: right;
+            white-space: nowrap; /* Forces one line */
         }
 
         .activity {
@@ -227,42 +232,42 @@
         <div class="timeline">
             
             <div class="timeline-item">
-                <div class="time">16:15 - 16:20</div>
+                <div class="time">16:15 - 16:25</div>
                 <div class="activity">
-                    <h3>الاستقبال والافتتاح</h3>
-                    <p>استقبال الزوار على نغمات موسيقى هادئة وتنشيط مسرحي خفيف.</p>
+                    <h3>🎬 سيمفونية البداية</h3>
+                    <p>استقبال الضيوف في المسرح على أنغام معزوفات ترحيبية هادئة.</p>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="time">16:20 - 16:30</div>
+                <div class="time">16:25 - 16:35</div>
                 <div class="activity">
-                    <h3>كلمة الختام</h3>
-                    <p>كلمة ترحيبية وشكر لكل المساهمين في إنجاح هذا اليوم الإبداعي.</p>
+                    <h3>🎤 ميثاق التميز (كلمة الإدارة)</h3>
+                    <p>كلمة شكر وتقدير للأسر على ثقتهم، وللطاقم التربوي على مجهوداتهم في إنجاح هذا الحدث الاستثنائي.</p>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="time">16:30 - 16:45</div>
+                <div class="time">16:35 - 16:55</div>
                 <div class="activity">
-                    <h3>حصاد الإبداع</h3>
-                    <p>عرض ملخص سريع لأهم إنتاجات الورشات (فيديو أو تقديم حي لبعض النماذج).</p>
+                    <h3>🎬 عرض فيديو "حصاد اليوم"</h3>
+                    <p>عرض شريط فيديو شامل يوثق أجمل اللحظات</p>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="time">16:45 - 16:55</div>
+                <div class="time">16:55 - 17:25</div>
                 <div class="activity">
-                    <h3>لحظة فنية</h3>
-                    <p>فقرة فنية قصيرة من إعداد التلاميذ (مسرح، إنشاد، أو استعراض ريادي).</p>
+                    <h3>🎭 استعراض المواهب: إبداعات الأقسام</h3>
+                    <p>سلسلة من العروض الفنية المتنوعة</p>
                 </div>
             </div>
 
             <div class="timeline-item" style="border-bottom: none;">
-                <div class="time">16:55 - 17:00</div>
+                <div class="time">17:25 - 17:30</div>
                 <div class="activity">
-                    <h3>الوداع</h3>
-                    <p>كلمة ختامية وشكر للحضور الكريم على مشاركتهم المتميزة.</p>
+                    <h3>👋 الختام والوداع</h3>
+                    <p>كلمة ختامية</p>
                 </div>
             </div>
 
